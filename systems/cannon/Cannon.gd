@@ -21,7 +21,11 @@ const CannonFireParticlesScene = preload("res://cannonball/hit_effects/cannon_fi
 @export var idle_animation_name: String = "idle"
 @export var shoot_animation_name: String = "shoot"
 
+@export var particle_offset: Vector2 = Vector2.ZERO
+
 @onready var last_fired = -fire_rate ## When the cannon was last shot
+
+var delta_time = 0.016
 
 func _ready():
 	if animation_player:
@@ -29,6 +33,9 @@ func _ready():
 		animation_player.speed_scale = 1000.0 / fire_rate # speed up or down based on fire rate
 	else:
 		print_rich("[b][color=red]NO ANIMATION PLAYER SPECIFIED IN CANNON[/color][/b]")
+
+func _physics_process(delta: float) -> void:
+	delta_time = delta
 
 func switch_to_idle(_x):
 	animation_player.current_animation = idle_animation_name
@@ -66,7 +73,7 @@ func shoot(target: Vector2, additional_vel: Vector2 = Vector2.ZERO) -> bool:
 		
 	# Add particle effect
 	var particles = CannonFireParticlesScene.instantiate()
-	particles.position = Vector2.ZERO
+	particles.position = Vector2.ZERO + particle_offset
 	particles.restart()
 	add_child(particles)
 	

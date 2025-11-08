@@ -31,11 +31,12 @@ metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("1_ig7tw")]
 unique_name_in_owner = true
-position = Vector2(1036, -675)
+position = Vector2(895, -670)
+rotation = -1.5707964
 up_direction = Vector2(0, 1)
 
 [node name="PowderKeg" parent="." instance=ExtResource("6_7mycd")]
-position = Vector2(1061, -408)
+position = Vector2(1241, -664)
 
 [node name="CannonRed" parent="." instance=ExtResource("7_272bh")]
 position = Vector2(1356, -664)

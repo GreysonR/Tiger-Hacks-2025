@@ -6,6 +6,7 @@ signal touched(node: Node2D)
 
 @export var damage: int = 0
 @export var knockback: float = 0.0
+@export var single_hit: bool = false
 
 var already_hit = []
 
@@ -16,7 +17,7 @@ func handle_hurtbox_collision(hurtbox: Hurtbox):
 	dealt_damage.emit(hurtbox)
 
 func handle_box_exit(hurtbox: Hurtbox):
-	if already_hit.find(hurtbox.get_rid()) != -1:
+	if single_hit == false && already_hit.find(hurtbox.get_rid()) != -1:
 		already_hit.erase(hurtbox.get_rid())
 	
 func _on_area_entered(area: Area2D) -> void:
@@ -41,5 +42,7 @@ func _on_area_exited(area) -> void:
 		handle_box_exit(area)
 
 func _on_body_shape_exited(_body_rid: RID, body: Node2D, _body_shape_index: int, _local_shape_index: int) -> void:
+	if !body:
+		return
 	if body.is_in_group("Hurtbox"):
 		handle_box_exit(body)

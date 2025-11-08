@@ -11,6 +11,7 @@ radius = 16.0
 z_index = -1
 z_as_relative = false
 script = ExtResource("1_s8j7q")
+knockback = 100.0
 
 [node name="Hitbox" parent="." instance=ExtResource("2_ld3kw")]
 unique_name_in_owner = true
