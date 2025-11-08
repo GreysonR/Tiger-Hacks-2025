@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://cpwsaijqfwrx7"]
+
+[ext_resource type="Texture2D" uid="uid://4tjkffrc5bs5" path="res://player/sprites/sloop.png" id="1_oul6g"]
+[ext_resource type="Script" uid="uid://dm0i3ywgu4yny" path="res://player/player.gd" id="1_rkbax"]
+[ext_resource type="Script" uid="uid://dho1go2jsex0e" path="res://Ship.gd" id="3_g1dw6"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rkbax"]
+radius = 34.0
+height = 150.0
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("ship")]
+script = ExtResource("1_rkbax")
+ship = NodePath("Ship")
+
+[node name="Ship" type="Node" parent="."]
+script = ExtResource("3_g1dw6")
+turn_rate = 19.0
+backward_multiplier = 0.5
+metadata/_custom_type_script = "uid://dho1go2jsex0e"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_rkbax")
+
+[node name="ShipSprite" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_oul6g")

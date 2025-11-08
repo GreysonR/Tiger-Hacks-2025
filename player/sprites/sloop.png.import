@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1eoa1l8c7ffp"
-path="res://.godot/imported/boost_yellow.png-c315f25251361142a827422a220f93b0.ctex"
+uid="uid://4tjkffrc5bs5"
+path="res://.godot/imported/sloop.png-a4b8cb7fdb16785867b006f767b71fbf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://player/boost_yellow.png"
-dest_files=["res://.godot/imported/boost_yellow.png-c315f25251361142a827422a220f93b0.ctex"]
+source_file="res://player/sprites/sloop.png"
+dest_files=["res://.godot/imported/sloop.png-a4b8cb7fdb16785867b006f767b71fbf.ctex"]
 
 [params]
 
