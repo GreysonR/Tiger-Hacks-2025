@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @export var ship: Ship
 
+signal move(new_position: Vector2)
 
 func _physics_process(delta: float) -> void:
 	var ship_dir = Vector2.from_angle(rotation)
@@ -26,5 +27,8 @@ func _physics_process(delta: float) -> void:
 	
 	# Apply friction
 	velocity *= (1 - ship.friction) ** delta
+	
+	if velocity.length() > 0:
+		move.emit(global_position)
 	
 	move_and_slide()

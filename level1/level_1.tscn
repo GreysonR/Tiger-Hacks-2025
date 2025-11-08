@@ -1,3 +1,69 @@
-[gd_scene format=3 uid="uid://sx1qxvutdk66"]
+[gd_scene load_steps=7 format=3 uid="uid://sx1qxvutdk66"]
+
+[ext_resource type="Texture2D" uid="uid://sxlc2t3gjbo6" path="res://level1/sprites/bg.png" id="1_v8of2"]
+[ext_resource type="Texture2D" uid="uid://poufjh7ip2aa" path="res://level1/sprites/stars_bottom.png" id="2_gpbvg"]
+[ext_resource type="Texture2D" uid="uid://btqsfksv6jqgd" path="res://level1/sprites/gas_bg.png" id="3_mh48n"]
+[ext_resource type="Texture2D" uid="uid://dxspoxdo3sr7r" path="res://level1/sprites/stars_top.png" id="4_atmxi"]
+[ext_resource type="Texture2D" uid="uid://ggcdp05mhyjp" path="res://level1/sprites/Planets.png" id="5_mh48n"]
+[ext_resource type="Texture2D" uid="uid://cusfhfev62qrn" path="res://level1/sprites/border.png" id="6_atmxi"]
 
 [node name="Level1" type="Node2D"]
+
+[node name="bg" type="Sprite2D" parent="."]
+z_index = -110
+z_as_relative = false
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_v8of2")
+
+[node name="stars_bottom_parallax" type="Parallax2D" parent="."]
+z_index = -100
+z_as_relative = false
+scale = Vector2(0.5, 0.5)
+
+[node name="stars_bottom_sprite" type="Sprite2D" parent="stars_bottom_parallax"]
+z_as_relative = false
+texture = ExtResource("2_gpbvg")
+
+[node name="gas_bg" type="Sprite2D" parent="."]
+z_index = -100
+z_as_relative = false
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_mh48n")
+
+[node name="stars_top_parallax" type="Parallax2D" parent="."]
+z_index = -100
+z_as_relative = false
+scale = Vector2(0.5, 0.5)
+
+[node name="stars_top_sprite" type="Sprite2D" parent="stars_top_parallax"]
+z_as_relative = false
+texture = ExtResource("4_atmxi")
+
+[node name="planets" type="StaticBody2D" parent="."]
+
+[node name="planetsSprite" type="Sprite2D" parent="planets"]
+z_index = 99
+z_as_relative = false
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_mh48n")
+
+[node name="center_planet" type="CollisionPolygon2D" parent="planets"]
+polygon = PackedVector2Array(-248, -274, -203, -318, -144, -407, -108, -452, -69, -483, -28, -505, 26, -518, 135, -525, 187, -529, 256, -523, 350, -499, 439, -453, 515, -394, 572, -334, 602, -268, 609, -194, 593, -121, 562, -56, 543, 6, 523, 63, 474, 129, 423, 164, 362, 184, 291, 189, 254, 189, 110, 230, 50, 270, -46, 340, -80, 359, -130, 366, -188, 358, -242, 333, -291, 292, -327, 232, -337, 168, -347, 115, -384, 8, -390, -58, -372, -143, -329, -209, -285, -245)
+
+[node name="top_left" type="CollisionPolygon2D" parent="planets"]
+polygon = PackedVector2Array(-1034, -588, -1044, -547, -1073, -508, -1113, -481, -1153, -471, -1206, -476, -1249, -499, -1280, -534, -1309, -607, -1320, -641, -1325, -709, -1333, -800, -1326, -858, -1311, -908, -1274, -1003, -1250, -1041, -1213, -1077, -1159, -1107, -1107, -1120, -1063, -1122, -1026, -1117, -975, -1124, -911, -1153, -854, -1199, -797, -1240, -742, -1260, -691, -1270, -639, -1268, -595, -1262, -551, -1254, -521, -1233, -499, -1201, -494, -1164, -504, -1129, -532, -1095, -663, -969, -708, -940, -757, -919, -847, -899, -923, -853, -969, -802, -1000, -742, -1016, -681)
+
+[node name="top_left_island" type="CollisionPolygon2D" parent="planets"]
+polygon = PackedVector2Array(-1331, -31, -1273, -120, -1235, -146, -1191, -150, -1155, -138, -1129, -113, -1114, -77, -1112, 37, -1125, 76, -1146, 107, -1179, 129, -1223, 139, -1268, 132, -1309, 103, -1336, 58, -1343, 12)
+
+[node name="top_right" type="CollisionPolygon2D" parent="planets"]
+polygon = PackedVector2Array(1195, -1312, 1311, -1272, 1339, -1254, 1443, -1171, 1473, -1118, 1481, -1060, 1460, -997, 1415, -953, 1371, -933, 1320, -931, 1274, -942, 1223, -973, 1168, -1041, 1128, -1067, 1087, -1087, 1050, -1139, 1039, -1190, 1051, -1242, 1083, -1284, 1107, -1300, 1134, -1312, 1164, -1316)
+
+[node name="bottom_right" type="CollisionPolygon2D" parent="planets"]
+polygon = PackedVector2Array(1158, 1288, 907, 1347, 882, 1350, 620, 1360, 574, 1350, 531, 1321, 505, 1289, 490, 1251, 486, 1205, 504, 1153, 538, 1117, 580, 1097, 620, 1093, 737, 1098, 790, 1092, 842, 1075, 891, 1046, 937, 1001, 1038, 837, 1047, 803, 1047, 777, 1062, 739, 1087, 715, 1119, 697, 1162, 696, 1215, 702, 1252, 720, 1281, 751, 1303, 793, 1307, 837, 1298, 879, 1247, 991, 1239, 1033, 1243, 1078, 1258, 1119, 1261, 1170, 1244, 1221, 1210, 1262)
+
+[node name="border" type="Sprite2D" parent="."]
+z_index = 100
+z_as_relative = false
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_atmxi")
