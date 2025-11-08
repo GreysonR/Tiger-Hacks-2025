@@ -1,24 +1,22 @@
 extends CharacterBody2D
 
 @export var ship: Ship
-
 @onready var boost_sprite = %BoostSprite
+@onready var healthbar = %Healthbar
 
-signal move(new_position: Vector2)
-signal damaged(new_health: int, damage: int, max_health: int)
-signal died()
-signal collected_coin()
+# AI controls
+var turn_dir = 0
+var forward_dir = 0
+var shoot = false
+var shoot_target = Vector2.ZERO
 
 func _physics_process(delta: float) -> void:
 	var ship_dir = Vector2.from_angle(rotation)
-	var forward_dir = Input.get_axis("backward", "forward")
-	var turn_dir = Input.get_axis("turn_left", "turn_right")
 	var acceleration = ship.acceleration
 	
 	# Shoot if possible
-	if Input.is_action_just_pressed("shoot"):
-		var target = get_global_mouse_position()
-		ship.shoot_cannons(target)
+	if shoot:
+		ship.shoot_cannons(shoot_target)
 	
 	# Slow down turn rate if going very slow
 	var turn_slowing = min(1.0, velocity.length() / ship.turn_threshold)
@@ -38,28 +36,13 @@ func _physics_process(delta: float) -> void:
 	# Apply friction
 	velocity *= (1 - ship.friction) ** delta
 	
-	if velocity.length() > 0:
-		move.emit(global_position)
-		
-		
+	
 	# Change boost sprite
 	boost_sprite.visible = forward_dir > 0
-		
+	
 	
 	move_and_slide()
 
 
-func _on_ship_damaged(new_health: int, damage: int) -> void:
-	damaged.emit(new_health, damage, ship.max_health)
-
-
-func _on_ship_died() -> void:
-	died.emit()
-
-func collect_coin():
-	PlayerStats.money += 1
-	collected_coin.emit()
-
-func _on_hurtbox_touched(node: Node2D) -> void:
-	if node.is_in_group("Coin"):
-		collect_coin()
+func _on_ship_damaged(new_health: int, _damage: int) -> void:
+	healthbar.set_health(new_health, ship.max_health)

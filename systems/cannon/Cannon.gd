@@ -54,8 +54,6 @@ func shoot(target: Vector2, additional_vel: Vector2 = Vector2.ZERO) -> bool:
 	if abs(angle_difference(dir.angle(), global_rotation)) > deg_to_rad(angle_range) / 2.0:
 		return false
 	
-	#print("Shot to ", dir)
-	
 	last_fired = Time.get_ticks_msec()
 	
 	# Create cannonball

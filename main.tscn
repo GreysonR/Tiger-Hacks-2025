@@ -1,12 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://hndeylx84u07"]
+[gd_scene load_steps=7 format=3 uid="uid://hndeylx84u07"]
 
 [ext_resource type="Script" uid="uid://1ijb2mpvdloj" path="res://main.gd" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://cpwsaijqfwrx7" path="res://player/player.tscn" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://dj3a7sqdboovd" path="res://camera_2d.gd" id="3_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://sx1qxvutdk66" path="res://level1/level_1.tscn" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://jtaox464040x" path="res://GUI/ingame_hud/ingame_hud.tscn" id="5_lquwl"]
-[ext_resource type="PackedScene" uid="uid://bb2frbq36ccbj" path="res://powder_keg/powder_keg.tscn" id="6_7mycd"]
-[ext_resource type="PackedScene" uid="uid://ddbjns5jmx5q2" path="res://cannon_red/cannon_red.tscn" id="7_272bh"]
+[ext_resource type="PackedScene" uid="uid://g0jebrdnaucv" path="res://enemy_sloop/enemy_sloop.tscn" id="6_7mycd"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_0xm2m")
@@ -35,11 +34,8 @@ position = Vector2(895, -670)
 rotation = -1.5707964
 up_direction = Vector2(0, 1)
 
-[node name="PowderKeg" parent="." instance=ExtResource("6_7mycd")]
-position = Vector2(1241, -664)
-
-[node name="CannonRed" parent="." instance=ExtResource("7_272bh")]
-position = Vector2(1356, -664)
+[node name="EnemySloop" parent="." instance=ExtResource("6_7mycd")]
+position = Vector2(1202, -660)
 
 [connection signal="collected_coin" from="Player" to="HUD/InGameHud" method="_on_player_collected_coin"]
 [connection signal="damaged" from="Player" to="HUD/InGameHud" method="_on_player_damaged"]

@@ -15,7 +15,6 @@ func handle_hitbox_collision(hitbox: Hitbox):
 		return
 	if already_hit.find(hitbox.get_rid()) != -1:
 		return
-	print(hitbox, ", ",  parent_hitbox)
 	already_hit.push_back(hitbox.get_rid())
 	parent_character.take_damage(hitbox.damage)
 	

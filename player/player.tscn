@@ -521,5 +521,4 @@ shape = SubResource("CapsuleShape2D_rkbax")
 
 [connection signal="damaged" from="Ship" to="." method="_on_ship_damaged"]
 [connection signal="died" from="Ship" to="." method="_on_ship_died"]
-[connection signal="take_damage" from="Hurtbox" to="." method="_on_hurtbox_take_damage"]
 [connection signal="touched" from="Hurtbox" to="." method="_on_hurtbox_touched"]
