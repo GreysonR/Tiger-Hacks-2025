@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://phpo0qo7ibtj"
-path="res://.godot/imported/boost_pink.png-43c91284b1d673cefdfc4710c6bad793.ctex"
+uid="uid://cychje2k6dyyq"
+path="res://.godot/imported/antennae.png-2dd0687abb7387fee3a650d464efc066.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/boost_pink.png"
-dest_files=["res://.godot/imported/boost_pink.png-43c91284b1d673cefdfc4710c6bad793.ctex"]
+source_file="res://level1/antennae/sprites/antennae.png"
+dest_files=["res://.godot/imported/antennae.png-2dd0687abb7387fee3a650d464efc066.ctex"]
 
 [params]
 

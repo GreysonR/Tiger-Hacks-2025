@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 @export var ship: Ship
 
+@onready var boost_sprite = %BoostSprite
+
 signal move(new_position: Vector2)
 
 func _physics_process(delta: float) -> void:
@@ -14,7 +16,7 @@ func _physics_process(delta: float) -> void:
 	var turn_slowing = min(1.0, velocity.length() / ship.turn_threshold)
 	
 	# Don't go as fast if moving backward
-	if forward_dir < 0.0 && ship_dir.dot(velocity) < 0.0:
+	if forward_dir < 0.0:
 		acceleration *= ship.backward_multiplier
 		
 	# Reverse steer controls when going backwards
@@ -30,5 +32,9 @@ func _physics_process(delta: float) -> void:
 	
 	if velocity.length() > 0:
 		move.emit(global_position)
+		
+	# Change boost sprite
+	boost_sprite.visible = forward_dir > 0
+		
 	
 	move_and_slide()
