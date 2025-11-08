@@ -17,7 +17,7 @@ script = ExtResource("3_1bvp3")
 
 [node name="Player" parent="." instance=ExtResource("1_ig7tw")]
 unique_name_in_owner = true
-position = Vector2(984, -760)
+position = Vector2(943, -772)
 up_direction = Vector2(0, 1)
 
 [connection signal="move" from="Player" to="Camera2D" method="_on_player_move"]

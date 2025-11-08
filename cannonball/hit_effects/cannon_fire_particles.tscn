@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://b36ql7wlgjsb"]
+
+[ext_resource type="Texture2D" uid="uid://blbcxuspqansm" path="res://cannonball/hit_effects/sprites/light.png" id="1_vr8ot"]
+[ext_resource type="Script" uid="uid://dk324qr8muvub" path="res://cannonball/hit_effects/cannon_fire_particles.gd" id="2_icd4x"]
+
+[sub_resource type="Curve" id="Curve_yvn2p"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_pjvej"]
+curve = SubResource("Curve_yvn2p")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6ybgc"]
+particle_flag_disable_z = true
+spread = 50.0
+initial_velocity_min = 28.949999
+initial_velocity_max = 134.86
+gravity = Vector3(0, 0, 0)
+scale_min = 0.5
+scale_curve = SubResource("CurveTexture_pjvej")
+
+[node name="CannonFireParticles" type="GPUParticles2D"]
+z_index = 1
+z_as_relative = false
+position = Vector2(8, 0)
+amount = 14
+texture = ExtResource("1_vr8ot")
+lifetime = 0.5
+explosiveness = 0.95
+visibility_rect = Rect2(-150, -150, 300, 300)
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_6ybgc")
+script = ExtResource("2_icd4x")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

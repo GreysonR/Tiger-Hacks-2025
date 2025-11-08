@@ -12,10 +12,15 @@ func _physics_process(delta: float) -> void:
 	var turn_dir = Input.get_axis("turn_left", "turn_right")
 	var acceleration = ship.acceleration
 	
+	# Shoot if possible
+	if Input.is_action_just_pressed("shoot"):
+		var target = get_global_mouse_position()
+		ship.shoot_cannons(target)
+	
 	# Slow down turn rate if going very slow
 	var turn_slowing = min(1.0, velocity.length() / ship.turn_threshold)
 	
-	# Don't go as fast if moving backward
+	# Don't go as fast if moving backward / braking
 	if forward_dir < 0.0:
 		acceleration *= ship.backward_multiplier
 		
@@ -32,6 +37,7 @@ func _physics_process(delta: float) -> void:
 	
 	if velocity.length() > 0:
 		move.emit(global_position)
+		
 		
 	# Change boost sprite
 	boost_sprite.visible = forward_dir > 0

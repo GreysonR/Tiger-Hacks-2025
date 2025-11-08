@@ -1,3 +1,29 @@
-[gd_scene format=3 uid="uid://bsdvnsghlgfh"]
+[gd_scene load_steps=5 format=3 uid="uid://bsdvnsghlgfh"]
 
-[node name="Cannonball" type="CharacterBody2D"]
+[ext_resource type="Script" uid="uid://bjncjcbdw6on7" path="res://cannonball/cannonball.gd" id="1_s8j7q"]
+[ext_resource type="Texture2D" uid="uid://ci6umoecwd6sl" path="res://cannonball/sprites/cannonball.png" id="1_xif0x"]
+[ext_resource type="PackedScene" uid="uid://cqmv7o0lm7pk6" path="res://systems/damage/hitbox.tscn" id="2_ld3kw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s8j7q"]
+radius = 16.0
+
+[node name="Cannonball" type="Node2D"]
+z_index = -1
+z_as_relative = false
+script = ExtResource("1_s8j7q")
+
+[node name="Hitbox" parent="." instance=ExtResource("2_ld3kw")]
+unique_name_in_owner = true
+position = Vector2(-14, -9)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(14, 9)
+shape = SubResource("CircleShape2D_s8j7q")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_xif0x")
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="body_shape_entered" from="Hitbox" to="." method="_on_hitbox_body_shape_entered"]
