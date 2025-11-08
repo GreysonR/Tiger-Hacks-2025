@@ -4,15 +4,18 @@ class_name Cannon
 const CannonballScene = preload("res://cannonball/cannonball.tscn")
 const CannonFireParticlesScene = preload("res://cannonball/hit_effects/cannon_fire_particles.tscn")
 
+@onready var player = get_tree().get_first_node_in_group("PlayerCharacter")
+
 @export var damage: int = 1 ## Damage dealt by cannonball
 @export var fire_rate: float = 1000.0 ## ms per shot
-@export var ship: Ship ## What character does the shooting
 @export var side: int = 0 ## What side the cannon is on. Use if you only want to fire one side at a time, or create firing groups. Keep unique if you want to fire only one cannon at a time
 @export var speed: float = 350.0 ## Speed of cannonball
 @export_range (0.0, 180.0, 1.0) var angle_range: float = 90.0 ## Angle between which the cannon can actually shoot
 
 @export_flags_2d_physics var collision_layer: int = 1
 @export_flags_2d_physics var collision_mask: int = 1
+
+@export var parent_collision_shape: CollisionObject2D
 
 @export var animation_player: AnimationPlayer
 @export var idle_animation_name: String = "idle"
@@ -50,6 +53,7 @@ func shoot(target: Vector2, additional_vel: Vector2 = Vector2.ZERO) -> bool:
 	
 	# Create cannonball
 	var cannonball = CannonballScene.instantiate()
+	cannonball.parent_collision_shape = parent_collision_shape
 	cannonball.position = global_position
 	cannonball.set_mask(collision_mask)
 	cannonball.set_layer(collision_layer)

@@ -5,6 +5,9 @@ extends CharacterBody2D
 @onready var boost_sprite = %BoostSprite
 
 signal move(new_position: Vector2)
+signal damaged(new_health: int, damage: int, max_health: int)
+signal died()
+signal collected_coin()
 
 func _physics_process(delta: float) -> void:
 	var ship_dir = Vector2.from_angle(rotation)
@@ -44,3 +47,20 @@ func _physics_process(delta: float) -> void:
 		
 	
 	move_and_slide()
+
+
+func _on_ship_damaged(new_health: int, damage: int) -> void:
+	damaged.emit(new_health, damage, ship.max_health)
+
+
+func _on_ship_died() -> void:
+	died.emit()
+
+func collect_coin():
+	PlayerStats.money += 1
+	collected_coin.emit()
+
+
+func _on_hurtbox_touched(node: Node2D) -> void:
+	if node.is_in_group("Coin"):
+		collect_coin()

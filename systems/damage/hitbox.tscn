@@ -2,5 +2,12 @@
 
 [ext_resource type="Script" uid="uid://dc1msuxa1qo11" path="res://systems/damage/hitbox.gd" id="1_ncw7d"]
 
-[node name="Hitbox" type="Area2D"]
+[node name="Hitbox" type="Area2D" groups=["Hitbox"]]
 script = ExtResource("1_ncw7d")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_area_exited"]
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
+[connection signal="body_shape_exited" from="." to="." method="_on_body_shape_exited"]

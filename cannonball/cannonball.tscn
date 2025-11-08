@@ -27,3 +27,4 @@ texture = ExtResource("1_xif0x")
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="body_shape_entered" from="Hitbox" to="." method="_on_hitbox_body_shape_entered"]
+[connection signal="dealt_damage" from="Hitbox" to="." method="_on_hitbox_dealt_damage"]

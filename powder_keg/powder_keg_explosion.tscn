@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://c7eflyfdlrtdx"]
+
+[ext_resource type="Script" uid="uid://1pvo548w0lbj" path="res://powder_keg/powder_keg_explosion.gd" id="1_thm1h"]
+[ext_resource type="PackedScene" uid="uid://bg6tvcb5prtn1" path="res://powder_keg/powder_keg_explosion_particles.tscn" id="2_thm1h"]
+[ext_resource type="PackedScene" uid="uid://cqmv7o0lm7pk6" path="res://systems/damage/hitbox.tscn" id="2_uh8pq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uh8pq"]
+radius = 109.004585
+
+[node name="PowderKegExplosion" type="Node2D"]
+script = ExtResource("1_thm1h")
+
+[node name="PowderKegExplosion" parent="." instance=ExtResource("2_thm1h")]
+
+[node name="Hitbox" parent="." instance=ExtResource("2_uh8pq")]
+unique_name_in_owner = true
+collision_layer = 4
+collision_mask = 6
+damage = 2
+knockback = 600.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CircleShape2D_uh8pq")

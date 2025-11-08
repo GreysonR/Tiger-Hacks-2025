@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://x50afxc7b8m"]
+
+[ext_resource type="Script" uid="uid://orr84nc63bc" path="res://cash_drop/cash_drop.gd" id="1_ihblh"]
+
+[node name="CashDrop" type="Node2D"]
+script = ExtResource("1_ihblh")
+speed_range = [10.0, 100.0]

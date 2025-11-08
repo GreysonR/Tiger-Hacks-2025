@@ -15,18 +15,25 @@ run/main_scene="uid://hndeylx84u07"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+PlayerStats="*res://systems/player_stats/player_stats.gd"
+
 [display]
 
 window/size/viewport_width=1920
-window/size/viewport_height=1080
+window/size/viewport_height=1000
 window/size/mode=2
+window/stretch/mode="canvas_items"
 
 [global_group]
 
-Player="the player character"
+Player="player's things"
 Hitbox="Hits things"
 Hurtbox="what takes damage"
 Enemy=""
+PlayerCharacter="player character themselves"
+Coin="pickupable coin"
 
 [input]
 
@@ -70,9 +77,11 @@ quit={
 2d_physics/layer_1="environment"
 2d_physics/layer_2="player"
 2d_physics/layer_3="enemy"
+2d_physics/layer_4="coin"
 
 [physics]
 
+2d/default_gravity=0.0
 common/physics_interpolation=true
 
 [rendering]

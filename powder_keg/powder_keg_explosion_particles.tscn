@@ -1,0 +1,63 @@
+[gd_scene load_steps=10 format=3 uid="uid://bg6tvcb5prtn1"]
+
+[ext_resource type="Script" uid="uid://bhwtwr1vr7gl5" path="res://cannonball/hit_effects/normal_cannonballexplosion.gd" id="1_od82w"]
+[ext_resource type="Texture2D" uid="uid://bukyhh0qe35mo" path="res://cannonball/hit_effects/sprites/red.png" id="2_gxqyk"]
+[ext_resource type="Texture2D" uid="uid://blbcxuspqansm" path="res://cannonball/hit_effects/sprites/light.png" id="3_arbfj"]
+
+[sub_resource type="Curve" id="Curve_ma6m0"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_f2mcr"]
+curve = SubResource("Curve_ma6m0")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_i22e3"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 63.93
+initial_velocity_max = 248.92
+gravity = Vector3(0, 0, 0)
+scale_min = 0.29999998
+scale_max = 0.79999995
+scale_curve = SubResource("CurveTexture_f2mcr")
+
+[sub_resource type="Curve" id="Curve_3h5vt"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_0grx5"]
+curve = SubResource("Curve_3h5vt")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_m23mq"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 10.09
+initial_velocity_max = 167.23999
+gravity = Vector3(0, 0, 0)
+scale_min = 0.5
+scale_curve = SubResource("CurveTexture_0grx5")
+
+[node name="PowderKegExplosion" type="Node2D"]
+z_index = -1
+z_as_relative = false
+script = ExtResource("1_od82w")
+
+[node name="Bottom" type="GPUParticles2D" parent="."]
+unique_name_in_owner = true
+z_index = -1
+amount = 18
+texture = ExtResource("2_gxqyk")
+explosiveness = 0.95
+visibility_rect = Rect2(-150, -150, 300, 300)
+process_material = SubResource("ParticleProcessMaterial_i22e3")
+
+[node name="Top" type="GPUParticles2D" parent="."]
+unique_name_in_owner = true
+amount = 18
+texture = ExtResource("3_arbfj")
+explosiveness = 0.95
+visibility_rect = Rect2(-150, -150, 300, 300)
+process_material = SubResource("ParticleProcessMaterial_m23mq")
+
+[connection signal="finished" from="Bottom" to="." method="_on_finish"]
+[connection signal="finished" from="Top" to="." method="_on_finish"]

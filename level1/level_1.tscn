@@ -29,7 +29,7 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_v8of2")
 
 [node name="stars_bottom_parallax" type="Parallax2D" parent="."]
-z_index = -100
+z_index = -102
 z_as_relative = false
 scale = Vector2(0.5, 0.5)
 scroll_scale = Vector2(0.87, 0.87)
@@ -39,6 +39,8 @@ z_as_relative = false
 texture = ExtResource("2_gpbvg")
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
+z_index = -101
+z_as_relative = false
 scroll_scale = Vector2(0.95, 0.95)
 
 [node name="gas_bg" type="Sprite2D" parent="Parallax2D"]
@@ -60,7 +62,7 @@ texture = ExtResource("4_atmxi")
 [node name="planets" type="StaticBody2D" parent="."]
 z_index = 100
 z_as_relative = false
-collision_mask = 7
+collision_mask = 15
 
 [node name="center_planet" type="CollisionPolygon2D" parent="planets"]
 polygon = PackedVector2Array(-248, -274, -203, -318, -144, -407, -108, -452, -69, -483, -28, -505, 26, -518, 135, -525, 187, -529, 256, -523, 350, -499, 439, -453, 515, -394, 572, -334, 602, -268, 609, -194, 593, -121, 562, -56, 543, 6, 523, 63, 474, 129, 423, 164, 362, 184, 291, 189, 254, 189, 110, 230, 50, 270, -46, 340, -80, 359, -130, 366, -188, 358, -242, 333, -291, 292, -327, 232, -337, 168, -347, 115, -384, 8, -390, -58, -372, -143, -329, -209, -285, -245)
@@ -102,8 +104,7 @@ polygon = PackedVector2Array(-1612, -1735, -1898, -1460, -2016, -1270, -2048, -1
 
 [node name="BorderWall" type="StaticBody2D" parent="."]
 visible = false
-z_index = 101
-collision_mask = 7
+collision_mask = 15
 
 [node name="Top" type="CollisionShape2D" parent="BorderWall"]
 position = Vector2(-158.5, -1920)

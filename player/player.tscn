@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://cpwsaijqfwrx7"]
+[gd_scene load_steps=57 format=3 uid="uid://cpwsaijqfwrx7"]
 
 [ext_resource type="Texture2D" uid="uid://4tjkffrc5bs5" path="res://player/sprites/sloop.png" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://dm0i3ywgu4yny" path="res://player/player.gd" id="1_qjkh3"]
@@ -9,34 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://duu62xu8864n" path="res://player/sprites/boost_yellow.png" id="4_yw30f"]
 [ext_resource type="Texture2D" uid="uid://4c7t0gydbowg" path="res://player/sprites/sail.png" id="7_rgyib"]
 [ext_resource type="PackedScene" uid="uid://cw0tkif0ebdws" path="res://systems/damage/hurtbox.tscn" id="8_hg6s5"]
-
-[sub_resource type="Animation" id="Animation_hg6s5"]
-resource_name = "idle"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"idle"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 0,
-"values": []
-}
+[ext_resource type="PackedScene" uid="uid://cqmv7o0lm7pk6" path="res://systems/damage/hitbox.tscn" id="10_8t03j"]
 
 [sub_resource type="Animation" id="Animation_8t03j"]
 length = 0.001
@@ -75,6 +48,34 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_hg6s5"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idle"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
 }
 
 [sub_resource type="Animation" id="Animation_2ieo8"]
@@ -426,18 +427,17 @@ collision_layer = 2
 script = ExtResource("1_qjkh3")
 ship = NodePath("Ship")
 
-[node name="Ship" type="Node2D" parent="." node_paths=PackedStringArray("cannons", "parent_body")]
+[node name="Ship" type="Node2D" parent="." node_paths=PackedStringArray("cannons", "parent_body") groups=["PlayerCharacter"]]
 script = ExtResource("3_g1dw6")
-shoot_all = false
-cannons = [NodePath("Cannon"), NodePath("Cannon2"), NodePath("Cannon3"), NodePath("Cannon4")]
+cannons = [NodePath("Cannon"), NodePath("Cannon2")]
 parent_body = NodePath("..")
 metadata/_custom_type_script = "uid://dho1go2jsex0e"
 
-[node name="Cannon" parent="Ship" node_paths=PackedStringArray("ship", "animation_player") instance=ExtResource("3_qjkh3")]
+[node name="Cannon" parent="Ship" node_paths=PackedStringArray("animation_player") instance=ExtResource("3_qjkh3")]
 position = Vector2(0, -37)
 rotation = -1.5707964
-ship = NodePath("..")
-collision_layer = 3
+speed = 450.0
+collision_layer = 2
 collision_mask = 5
 animation_player = NodePath("AnimationPlayer")
 
@@ -453,11 +453,11 @@ scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_do7qw")
 animation = &"idle"
 
-[node name="Cannon2" parent="Ship" node_paths=PackedStringArray("ship", "animation_player") instance=ExtResource("3_qjkh3")]
+[node name="Cannon2" parent="Ship" node_paths=PackedStringArray("animation_player") instance=ExtResource("3_qjkh3")]
 position = Vector2(0, 37)
 rotation = 1.5707964
-ship = NodePath("..")
-collision_layer = 3
+speed = 450.0
+collision_layer = 2
 collision_mask = 5
 animation_player = NodePath("AnimationPlayer")
 
@@ -467,46 +467,6 @@ libraries = {
 }
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Ship/Cannon2"]
-z_index = 1
-position = Vector2(-14, 0)
-scale = Vector2(0.5, 0.5)
-sprite_frames = SubResource("SpriteFrames_do7qw")
-animation = &"idle"
-
-[node name="Cannon3" parent="Ship" node_paths=PackedStringArray("ship", "animation_player") instance=ExtResource("3_qjkh3")]
-position = Vector2(-24, -37)
-rotation = -1.5707964
-ship = NodePath("..")
-collision_layer = 3
-collision_mask = 5
-animation_player = NodePath("AnimationPlayer")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Ship/Cannon3"]
-libraries = {
-&"": SubResource("AnimationLibrary_ebec5")
-}
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Ship/Cannon3"]
-z_index = 1
-position = Vector2(-14, 0)
-scale = Vector2(0.5, 0.5)
-sprite_frames = SubResource("SpriteFrames_do7qw")
-animation = &"idle"
-
-[node name="Cannon4" parent="Ship" node_paths=PackedStringArray("ship", "animation_player") instance=ExtResource("3_qjkh3")]
-position = Vector2(-24, 37)
-rotation = 1.5707964
-ship = NodePath("..")
-collision_layer = 3
-collision_mask = 5
-animation_player = NodePath("AnimationPlayer")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Ship/Cannon4"]
-libraries = {
-&"": SubResource("AnimationLibrary_ebec5")
-}
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Ship/Cannon4"]
 z_index = 1
 position = Vector2(-14, 0)
 scale = Vector2(0.5, 0.5)
@@ -538,12 +498,28 @@ sprite_frames = SubResource("SpriteFrames_yllr7")
 animation = &"boost"
 autoplay = "boost"
 
-[node name="Hurtbox" parent="." node_paths=PackedStringArray("parent_character") instance=ExtResource("8_hg6s5")]
+[node name="Hurtbox" parent="." node_paths=PackedStringArray("parent_character") groups=["Player"] instance=ExtResource("8_hg6s5")]
 visible = false
 collision_layer = 2
-collision_mask = 2
+collision_mask = 13
 parent_character = NodePath("../Ship")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_rkbax")
+
+[node name="Hitbox" parent="." groups=["Player"] instance=ExtResource("10_8t03j")]
+visible = false
+collision_layer = 2
+collision_mask = 5
+damage = 1
+knockback = 100.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_rkbax")
+
+[connection signal="damaged" from="Ship" to="." method="_on_ship_damaged"]
+[connection signal="died" from="Ship" to="." method="_on_ship_died"]
+[connection signal="take_damage" from="Hurtbox" to="." method="_on_hurtbox_take_damage"]
+[connection signal="touched" from="Hurtbox" to="." method="_on_hurtbox_touched"]
