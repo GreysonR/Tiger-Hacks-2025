@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var ship: Ship
 
 @onready var boost_sprite = %BoostSprite
+@onready var ExplosionScene = preload("res://cannonball/hit_effects/radial_cannonball_explosion.tscn")
 
 signal move(new_position: Vector2)
 signal damaged(new_health: int, damage: int, max_health: int)
@@ -55,6 +56,11 @@ func _on_ship_damaged(new_health: int, damage: int) -> void:
 
 func _on_ship_died() -> void:
 	died.emit()
+	
+	queue_free()
+	var explosion = ExplosionScene.instantiate()
+	explosion.position = global_position
+	get_tree().root.add_child(explosion)
 
 func collect_coin():
 	PlayerStats.money += 1

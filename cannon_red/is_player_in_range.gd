@@ -5,6 +5,8 @@ const max_fire_distance = 600.0
 
 func tick(actor: Node, blackboard: Blackboard) -> int:
 	var player = actor.player
+	if !player.is_inside_tree():
+		return FAILURE
 	var diff = player.global_position - actor.global_position
 	
 	if diff.length() < max_fire_distance:

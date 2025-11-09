@@ -1,8 +1,8 @@
 extends RigidBody2D
 
 @onready var player = get_tree().get_first_node_in_group("PlayerCharacter")
-const pickup_distance = 250.0
-const pickup_strength = 400.0
+const pickup_distance = 600.0
+const pickup_strength = 1000.0
 
 var initial_velocity = Vector2.ZERO
 

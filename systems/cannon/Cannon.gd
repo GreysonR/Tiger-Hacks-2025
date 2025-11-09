@@ -60,6 +60,7 @@ func shoot(target: Vector2, additional_vel: Vector2 = Vector2.ZERO) -> bool:
 	var cannonball = CannonballScene.instantiate()
 	cannonball.parent_collision_shape = parent_collision_shape
 	cannonball.position = global_position
+	cannonball.damage = damage
 	cannonball.set_mask(collision_mask)
 	cannonball.set_layer(collision_layer)
 	cannonball.velocity = dir * speed + additional_vel

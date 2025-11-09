@@ -363,80 +363,80 @@ radius = 38.0
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_7yoq5")
-character = NodePath("Character")
+character = NodePath("Ship")
 
-[node name="Character" type="Node2D" parent="." node_paths=PackedStringArray("parent_body") groups=["Enemy"]]
+[node name="Ship" type="Node2D" parent="." node_paths=PackedStringArray("parent_body") groups=["Enemy"]]
 script = ExtResource("2_fkf0j")
 parent_body = NodePath("..")
 max_health = 3
 cash_value = 3
 metadata/_custom_type_script = "uid://enntb2jocitf"
 
-[node name="Cannon" parent="Character" node_paths=PackedStringArray("animation_player") instance=ExtResource("3_a6f0r")]
+[node name="Cannon" parent="Ship" node_paths=PackedStringArray("animation_player") instance=ExtResource("3_a6f0r")]
 unique_name_in_owner = true
 collision_layer = 4
 collision_mask = 3
 animation_player = NodePath("AnimationPlayer")
 particle_offset = Vector2(50, 0)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Character/Cannon"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Ship/Cannon"]
 libraries = {
 &"": SubResource("AnimationLibrary_guiwg")
 }
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Character/Cannon"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Ship/Cannon"]
 z_index = 2
 z_as_relative = false
 sprite_frames = SubResource("SpriteFrames_lx6g4")
 animation = &"idle"
 offset = Vector2(16, 0)
 
-[node name="BeehaveTree" type="Node" parent="Character/Cannon" node_paths=PackedStringArray("blackboard", "actor")]
+[node name="BeehaveTree" type="Node" parent="Ship/Cannon" node_paths=PackedStringArray("blackboard", "actor")]
 script = ExtResource("6_e5lcu")
-blackboard = NodePath("@Node@64097")
+blackboard = NodePath("@Node@109897")
 actor = NodePath("..")
 metadata/_custom_type_script = "uid://bb0t2ovl7wifo"
 
-[node name="UntilFailDecorator" type="Node" parent="Character/Cannon/BeehaveTree"]
+[node name="UntilFailDecorator" type="Node" parent="Ship/Cannon/BeehaveTree"]
 script = ExtResource("7_1dixw")
 metadata/_custom_type_script = "uid://c84st521ytmk3"
 
-[node name="SelectorComposite" type="Node" parent="Character/Cannon/BeehaveTree/UntilFailDecorator"]
+[node name="SelectorComposite" type="Node" parent="Ship/Cannon/BeehaveTree/UntilFailDecorator"]
 script = ExtResource("8_yaf72")
 metadata/_custom_type_script = "uid://8hn4kne15ac5"
 
-[node name="LookAtPlayer" type="Node" parent="Character/Cannon/BeehaveTree/UntilFailDecorator/SelectorComposite"]
+[node name="LookAtPlayer" type="Node" parent="Ship/Cannon/BeehaveTree/UntilFailDecorator/SelectorComposite"]
 script = ExtResource("7_406xm")
 metadata/_custom_type_script = "uid://bbaojjriq676j"
 
-[node name="IsPlayerInRange" type="Node" parent="Character/Cannon/BeehaveTree/UntilFailDecorator/SelectorComposite/LookAtPlayer"]
+[node name="IsPlayerInRange" type="Node" parent="Ship/Cannon/BeehaveTree/UntilFailDecorator/SelectorComposite/LookAtPlayer"]
 script = ExtResource("10_ldjoq")
 metadata/_custom_type_script = "uid://cbnbvj8prv63i"
 
-[node name="DelayDecorator2" type="Node" parent="Character/Cannon/BeehaveTree/UntilFailDecorator/SelectorComposite/LookAtPlayer"]
+[node name="DelayDecorator2" type="Node" parent="Ship/Cannon/BeehaveTree/UntilFailDecorator/SelectorComposite/LookAtPlayer"]
 script = ExtResource("9_f0x5v")
 wait_time = 0.3
 metadata/_custom_type_script = "uid://dorri1tul8gfx"
 
-[node name="FacePlayer" type="Node" parent="Character/Cannon/BeehaveTree/UntilFailDecorator/SelectorComposite/LookAtPlayer/DelayDecorator2"]
+[node name="FacePlayer" type="Node" parent="Ship/Cannon/BeehaveTree/UntilFailDecorator/SelectorComposite/LookAtPlayer/DelayDecorator2"]
 script = ExtResource("8_1dixw")
 metadata/_custom_type_script = "uid://cv74jjdrwevpr"
 
-[node name="DelayDecorator" type="Node" parent="Character/Cannon/BeehaveTree/UntilFailDecorator/SelectorComposite/LookAtPlayer"]
+[node name="DelayDecorator" type="Node" parent="Ship/Cannon/BeehaveTree/UntilFailDecorator/SelectorComposite/LookAtPlayer"]
 script = ExtResource("9_f0x5v")
 wait_time = 0.3
 metadata/_custom_type_script = "uid://dorri1tul8gfx"
 
-[node name="Shoot" type="Node" parent="Character/Cannon/BeehaveTree/UntilFailDecorator/SelectorComposite/LookAtPlayer/DelayDecorator"]
+[node name="Shoot" type="Node" parent="Ship/Cannon/BeehaveTree/UntilFailDecorator/SelectorComposite/LookAtPlayer/DelayDecorator"]
 script = ExtResource("13_ldjoq")
 metadata/_custom_type_script = "uid://cv74jjdrwevpr"
 
-[node name="WaitForPlayer" type="Node" parent="Character/Cannon/BeehaveTree/UntilFailDecorator/SelectorComposite"]
+[node name="WaitForPlayer" type="Node" parent="Ship/Cannon/BeehaveTree/UntilFailDecorator/SelectorComposite"]
 script = ExtResource("9_f0x5v")
 wait_time = 0.2
 metadata/_custom_type_script = "uid://dorri1tul8gfx"
 
-[node name="Wait" type="Node" parent="Character/Cannon/BeehaveTree/UntilFailDecorator/SelectorComposite/WaitForPlayer"]
+[node name="Wait" type="Node" parent="Ship/Cannon/BeehaveTree/UntilFailDecorator/SelectorComposite/WaitForPlayer"]
 script = ExtResource("11_rtdce")
 metadata/_custom_type_script = "uid://cv74jjdrwevpr"
 
@@ -451,7 +451,7 @@ shape = SubResource("CircleShape2D_80m7a")
 [node name="Hurtbox" parent="." node_paths=PackedStringArray("parent_character", "parent_hitbox") groups=["Enemy"] instance=ExtResource("6_guiwg")]
 collision_layer = 4
 collision_mask = 2
-parent_character = NodePath("../Character")
+parent_character = NodePath("../Ship")
 parent_hitbox = NodePath("../Hitbox")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
@@ -469,6 +469,6 @@ shape = SubResource("CircleShape2D_0tiaj")
 [node name="Healthbar" parent="." instance=ExtResource("9_i6ngp")]
 unique_name_in_owner = true
 
-[connection signal="damaged" from="Character" to="." method="_on_character_damaged"]
-[connection signal="died" from="Character" to="." method="_on_character_died"]
+[connection signal="damaged" from="Ship" to="." method="_on_character_damaged"]
+[connection signal="died" from="Ship" to="." method="_on_character_died"]
 [connection signal="take_damage" from="Hurtbox" to="." method="_on_hurtbox_take_damage"]

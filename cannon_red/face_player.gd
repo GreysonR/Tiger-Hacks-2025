@@ -4,6 +4,8 @@ extends ActionLeaf
 @export var turn_rate : float = 1.0
 
 func tick(actor: Node, blackboard: Blackboard) -> int:
+	if !actor.player.is_inside_tree():
+		return
 	var target_angle = (actor.player.global_position - actor.global_position).angle()
 	var current_angle = actor.rotation
 	var angle_diff = angle_difference(target_angle, current_angle)

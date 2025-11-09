@@ -9,8 +9,8 @@ func _ready():
 	set_health(player.max_health, player.max_health)
 
 func set_health(health: int, max_health):
-	healthbar.value = health
 	healthbar.max_value = max_health
+	healthbar.value = health
 	health_text.text = str(health) + "/" + str(max_health)
 
 func set_money(money: int):

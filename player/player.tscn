@@ -114,7 +114,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [0, 59]
+"values": [0, 29]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ebec5"]
@@ -436,7 +436,9 @@ metadata/_custom_type_script = "uid://dho1go2jsex0e"
 [node name="Cannon" parent="Ship" node_paths=PackedStringArray("animation_player") instance=ExtResource("3_qjkh3")]
 position = Vector2(0, -37)
 rotation = -1.5707964
+damage = 3
 speed = 450.0
+angle_range = 100.0
 collision_layer = 2
 collision_mask = 5
 animation_player = NodePath("AnimationPlayer")
@@ -456,7 +458,9 @@ animation = &"idle"
 [node name="Cannon2" parent="Ship" node_paths=PackedStringArray("animation_player") instance=ExtResource("3_qjkh3")]
 position = Vector2(0, 37)
 rotation = 1.5707964
+damage = 3
 speed = 450.0
+angle_range = 100.0
 collision_layer = 2
 collision_mask = 5
 animation_player = NodePath("AnimationPlayer")

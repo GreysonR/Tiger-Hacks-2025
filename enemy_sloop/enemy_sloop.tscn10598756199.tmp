@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://o7e23umb5kfg" path="res://enemy_sloop/enemy_sloop.gd" id="1_hnebp"]
 [ext_resource type="Script" uid="uid://dho1go2jsex0e" path="res://systems/ship/Ship.gd" id="1_qghpe"]
-[ext_resource type="Script" uid="uid://bbaojjriq676j" path="res://addons/beehave/nodes/composites/sequence_star.gd" id="3_3g7kw"]
 [ext_resource type="PackedScene" uid="uid://b2h2bq4y0qfv5" path="res://systems/cannon/cannon.tscn" id="3_dch6v"]
 [ext_resource type="Texture2D" uid="uid://nkelv368hhj4" path="res://enemy_sloop/sprites/sail.png" id="3_hnebp"]
 [ext_resource type="Texture2D" uid="uid://c8ja48px0lqh4" path="res://enemy_sloop/sprites/cannon.png" id="4_kp6fi"]
@@ -17,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://cqmv7o0lm7pk6" path="res://systems/damage/hitbox.tscn" id="6_kp6fi"]
 [ext_resource type="Script" uid="uid://we22430vcb44" path="res://addons/beehave/nodes/decorators/time_limiter.gd" id="7_8tl6j"]
 [ext_resource type="Script" uid="uid://c84st521ytmk3" path="res://addons/beehave/nodes/decorators/until_fail.gd" id="7_yvd4t"]
+[ext_resource type="Script" uid="uid://cg016dbe7gs1x" path="res://addons/beehave/nodes/composites/sequence.gd" id="8_0t5u0"]
 [ext_resource type="PackedScene" uid="uid://dp4u0ehqdagfh" path="res://GUI/enemy_healthbar/enemy_healthbar.tscn" id="11_kp6fi"]
 
 [sub_resource type="Animation" id="Animation_8t03j"]
@@ -110,7 +110,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-6.5, 0)]
+"values": [Vector2(-14.175, 0)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -373,64 +373,64 @@ animations = [{
 radius = 33.0
 height = 148.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hjub2"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ltgl"]
 atlas = ExtResource("5_5ltgl")
-region = Rect2(0, 0, 50, 50)
+region = Rect2(1, 0, 49, 50)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_himd7"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_hnebp"]
 atlas = ExtResource("5_5ltgl")
-region = Rect2(51, 0, 50, 50)
+region = Rect2(51, 0, 49, 50)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_aa4c1"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_q8qft"]
 atlas = ExtResource("5_5ltgl")
-region = Rect2(102, 0, 50, 50)
+region = Rect2(101, 0, 49, 50)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_s38pk"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_dch6v"]
 atlas = ExtResource("5_5ltgl")
-region = Rect2(153, 0, 50, 50)
+region = Rect2(151, 0, 49, 50)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_o0syu"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_kp6fi"]
 atlas = ExtResource("5_5ltgl")
-region = Rect2(204, 0, 50, 50)
+region = Rect2(201, 0, 49, 50)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_tu65m"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_1nmfl"]
 atlas = ExtResource("5_5ltgl")
-region = Rect2(255, 0, 50, 50)
+region = Rect2(251, 0, 49, 50)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_o4rru"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_shbu2"]
 atlas = ExtResource("5_5ltgl")
-region = Rect2(306, 0, 50, 50)
+region = Rect2(301, 0, 49, 50)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_s7aiw"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_i2avq"]
 atlas = ExtResource("5_5ltgl")
-region = Rect2(357, 0, 50, 50)
+region = Rect2(351, 0, 49, 50)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0t5u0"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_hjub2")
+"texture": SubResource("AtlasTexture_5ltgl")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_himd7")
+"texture": SubResource("AtlasTexture_hnebp")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_aa4c1")
+"texture": SubResource("AtlasTexture_q8qft")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_s38pk")
+"texture": SubResource("AtlasTexture_dch6v")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_o0syu")
+"texture": SubResource("AtlasTexture_kp6fi")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_tu65m")
+"texture": SubResource("AtlasTexture_1nmfl")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_o4rru")
+"texture": SubResource("AtlasTexture_shbu2")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_s7aiw")
+"texture": SubResource("AtlasTexture_i2avq")
 }],
 "loop": true,
 "name": &"default",
@@ -454,14 +454,11 @@ ship = NodePath("Ship")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 unique_name_in_owner = true
-radius = 300.0
-neighbor_distance = 800.0
-max_speed = 400.0
+debug_enabled = true
 
 [node name="BeehaveTree" type="Node" parent="." node_paths=PackedStringArray("blackboard", "actor")]
-unique_name_in_owner = true
 script = ExtResource("6_i2avq")
-blackboard = NodePath("@Node@129570")
+blackboard = NodePath("@Node@68292")
 actor = NodePath("..")
 metadata/_custom_type_script = "uid://bb0t2ovl7wifo"
 
@@ -469,43 +466,38 @@ metadata/_custom_type_script = "uid://bb0t2ovl7wifo"
 script = ExtResource("7_yvd4t")
 metadata/_custom_type_script = "uid://c84st521ytmk3"
 
-[node name="SequenceStarComposite" type="Node" parent="BeehaveTree/UntilFailDecorator"]
-script = ExtResource("3_3g7kw")
-metadata/_custom_type_script = "uid://bbaojjriq676j"
+[node name="SequenceComposite" type="Node" parent="BeehaveTree/UntilFailDecorator"]
+script = ExtResource("8_0t5u0")
+metadata/_custom_type_script = "uid://cg016dbe7gs1x"
 
-[node name="IsPlayerAlive" type="Node" parent="BeehaveTree/UntilFailDecorator/SequenceStarComposite"]
+[node name="IsPlayerAlive" type="Node" parent="BeehaveTree/UntilFailDecorator/SequenceComposite"]
 script = ExtResource("5_elbt4")
 metadata/_custom_type_script = "uid://cbnbvj8prv63i"
 
-[node name="ChooseTargetDest" type="Node" parent="BeehaveTree/UntilFailDecorator/SequenceStarComposite"]
+[node name="ChooseTargetDest" type="Node" parent="BeehaveTree/UntilFailDecorator/SequenceComposite"]
 script = ExtResource("5_yvd4t")
 metadata/_custom_type_script = "uid://cv74jjdrwevpr"
 
-[node name="TimeLimiterDecorator" type="Node" parent="BeehaveTree/UntilFailDecorator/SequenceStarComposite"]
+[node name="TimeLimiterDecorator" type="Node" parent="BeehaveTree/UntilFailDecorator/SequenceComposite"]
 script = ExtResource("7_8tl6j")
-wait_time = 5.0
+wait_time = 10.0
 metadata/_custom_type_script = "uid://we22430vcb44"
 
-[node name="MoveToTarget" type="Node" parent="BeehaveTree/UntilFailDecorator/SequenceStarComposite/TimeLimiterDecorator"]
+[node name="MoveToTarget" type="Node" parent="BeehaveTree/UntilFailDecorator/SequenceComposite/TimeLimiterDecorator"]
 script = ExtResource("6_0t5u0")
 metadata/_custom_type_script = "uid://cv74jjdrwevpr"
 
 [node name="Ship" type="Node2D" parent="." node_paths=PackedStringArray("cannons", "parent_body") groups=["Enemy"]]
 script = ExtResource("1_qghpe")
-acceleration = 6.0
-turn_rate = 15.0
-turn_threshold = 300.0
-backward_multiplier = 0.7
 cannons = [NodePath("Cannon"), NodePath("Cannon2")]
 parent_body = NodePath("..")
-max_health = 6
-cash_value = 8
+max_health = 10
+cash_value = 5
 metadata/_custom_type_script = "uid://dho1go2jsex0e"
 
 [node name="Cannon" parent="Ship" node_paths=PackedStringArray("animation_player") instance=ExtResource("3_dch6v")]
 position = Vector2(0, -37)
 rotation = -1.5707964
-fire_rate = 1500.0
 collision_layer = 4
 collision_mask = 3
 animation_player = NodePath("AnimationPlayer")
@@ -524,7 +516,6 @@ animation = &"idle"
 [node name="Cannon2" parent="Ship" node_paths=PackedStringArray("animation_player") instance=ExtResource("3_dch6v")]
 position = Vector2(0, 37)
 rotation = -4.712389
-fire_rate = 1500.0
 collision_layer = 4
 collision_mask = 3
 animation_player = NodePath("AnimationPlayer")

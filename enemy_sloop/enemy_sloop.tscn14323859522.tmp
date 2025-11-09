@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=3 uid="uid://g0jebrdnaucv"]
+[gd_scene load_steps=73 format=3 uid="uid://g0jebrdnaucv"]
 
 [ext_resource type="Script" uid="uid://o7e23umb5kfg" path="res://enemy_sloop/enemy_sloop.gd" id="1_hnebp"]
 [ext_resource type="Script" uid="uid://dho1go2jsex0e" path="res://systems/ship/Ship.gd" id="1_qghpe"]
@@ -16,8 +16,13 @@
 [ext_resource type="Script" uid="uid://bb0t2ovl7wifo" path="res://addons/beehave/nodes/beehave_tree.gd" id="6_i2avq"]
 [ext_resource type="PackedScene" uid="uid://cqmv7o0lm7pk6" path="res://systems/damage/hitbox.tscn" id="6_kp6fi"]
 [ext_resource type="Script" uid="uid://we22430vcb44" path="res://addons/beehave/nodes/decorators/time_limiter.gd" id="7_8tl6j"]
+[ext_resource type="Script" uid="uid://ccbl54npi6i71" path="res://enemy_sloop/is_attacking.gd" id="7_ljpiy"]
 [ext_resource type="Script" uid="uid://c84st521ytmk3" path="res://addons/beehave/nodes/decorators/until_fail.gd" id="7_yvd4t"]
+[ext_resource type="Script" uid="uid://cg016dbe7gs1x" path="res://addons/beehave/nodes/composites/sequence.gd" id="8_0t5u0"]
+[ext_resource type="Script" uid="uid://jb7ypvwt112t" path="res://enemy_sloop/choose_target_dest_roam.gd" id="10_afqea"]
 [ext_resource type="PackedScene" uid="uid://dp4u0ehqdagfh" path="res://GUI/enemy_healthbar/enemy_healthbar.tscn" id="11_kp6fi"]
+[ext_resource type="Script" uid="uid://fu2jf63yvkjv" path="res://enemy_sloop/move_to_target_roam.gd" id="12_ljpiy"]
+[ext_resource type="Script" uid="uid://bh6t5dx8s6ffm" path="res://enemy_sloop/is_roaming.gd" id="13_dg1di"]
 
 [sub_resource type="Animation" id="Animation_8t03j"]
 length = 0.001
@@ -110,7 +115,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-6.5, 0)]
+"values": [Vector2(-14.175, 0)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -457,6 +462,7 @@ unique_name_in_owner = true
 radius = 300.0
 neighbor_distance = 800.0
 max_speed = 400.0
+debug_enabled = true
 
 [node name="BeehaveTree" type="Node" parent="." node_paths=PackedStringArray("blackboard", "actor")]
 unique_name_in_owner = true
@@ -477,29 +483,65 @@ metadata/_custom_type_script = "uid://bbaojjriq676j"
 script = ExtResource("5_elbt4")
 metadata/_custom_type_script = "uid://cbnbvj8prv63i"
 
-[node name="ChooseTargetDest" type="Node" parent="BeehaveTree/UntilFailDecorator/SequenceStarComposite"]
+[node name="Attack" type="Node" parent="BeehaveTree/UntilFailDecorator/SequenceStarComposite"]
+script = ExtResource("3_3g7kw")
+metadata/_custom_type_script = "uid://bbaojjriq676j"
+
+[node name="IsPlayerAlive" type="Node" parent="BeehaveTree/UntilFailDecorator/SequenceStarComposite/Attack"]
+script = ExtResource("5_elbt4")
+metadata/_custom_type_script = "uid://cbnbvj8prv63i"
+
+[node name="IsAttacking" type="Node" parent="BeehaveTree/UntilFailDecorator/SequenceStarComposite/Attack"]
+script = ExtResource("7_ljpiy")
+metadata/_custom_type_script = "uid://cbnbvj8prv63i"
+
+[node name="ChooseTargetDest" type="Node" parent="BeehaveTree/UntilFailDecorator/SequenceStarComposite/Attack"]
 script = ExtResource("5_yvd4t")
+target_radius_range = [50.0, 200.0]
 metadata/_custom_type_script = "uid://cv74jjdrwevpr"
 
-[node name="TimeLimiterDecorator" type="Node" parent="BeehaveTree/UntilFailDecorator/SequenceStarComposite"]
+[node name="TimeLimiterDecorator" type="Node" parent="BeehaveTree/UntilFailDecorator/SequenceStarComposite/Attack"]
 script = ExtResource("7_8tl6j")
-wait_time = 5.0
+wait_time = 6.0
 metadata/_custom_type_script = "uid://we22430vcb44"
 
-[node name="MoveToTarget" type="Node" parent="BeehaveTree/UntilFailDecorator/SequenceStarComposite/TimeLimiterDecorator"]
+[node name="MoveToTarget" type="Node" parent="BeehaveTree/UntilFailDecorator/SequenceStarComposite/Attack/TimeLimiterDecorator"]
 script = ExtResource("6_0t5u0")
+metadata/_custom_type_script = "uid://cv74jjdrwevpr"
+
+[node name="Roam" type="Node" parent="BeehaveTree/UntilFailDecorator/SequenceStarComposite"]
+script = ExtResource("8_0t5u0")
+metadata/_custom_type_script = "uid://cg016dbe7gs1x"
+
+[node name="IsPlayerAlive" type="Node" parent="BeehaveTree/UntilFailDecorator/SequenceStarComposite/Roam"]
+script = ExtResource("5_elbt4")
+metadata/_custom_type_script = "uid://cbnbvj8prv63i"
+
+[node name="IsRoaming" type="Node" parent="BeehaveTree/UntilFailDecorator/SequenceStarComposite/Roam"]
+script = ExtResource("13_dg1di")
+metadata/_custom_type_script = "uid://cbnbvj8prv63i"
+
+[node name="ChooseTargetDest" type="Node" parent="BeehaveTree/UntilFailDecorator/SequenceStarComposite/Roam"]
+script = ExtResource("10_afqea")
+metadata/_custom_type_script = "uid://cv74jjdrwevpr"
+
+[node name="TimeLimiterDecorator" type="Node" parent="BeehaveTree/UntilFailDecorator/SequenceStarComposite/Roam"]
+script = ExtResource("7_8tl6j")
+wait_time = 6.0
+metadata/_custom_type_script = "uid://we22430vcb44"
+
+[node name="MoveToTarget" type="Node" parent="BeehaveTree/UntilFailDecorator/SequenceStarComposite/Roam/TimeLimiterDecorator"]
+script = ExtResource("12_ljpiy")
 metadata/_custom_type_script = "uid://cv74jjdrwevpr"
 
 [node name="Ship" type="Node2D" parent="." node_paths=PackedStringArray("cannons", "parent_body") groups=["Enemy"]]
 script = ExtResource("1_qghpe")
-acceleration = 6.0
-turn_rate = 15.0
-turn_threshold = 300.0
+acceleration = 9.0
 backward_multiplier = 0.7
 cannons = [NodePath("Cannon"), NodePath("Cannon2")]
 parent_body = NodePath("..")
-max_health = 6
-cash_value = 8
+max_health = 10
+cash_value = 5
 metadata/_custom_type_script = "uid://dho1go2jsex0e"
 
 [node name="Cannon" parent="Ship" node_paths=PackedStringArray("animation_player") instance=ExtResource("3_dch6v")]
