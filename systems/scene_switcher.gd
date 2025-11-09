@@ -3,6 +3,8 @@ extends Node
 var current_scene: Node = null
 var loading_scene = preload("res://GUI/loading_screen/loading_screen.tscn")
 
+signal unload()
+
 func _ready() -> void:
 	var root = get_tree().root
 	current_scene = root.get_child(root.get_child_count() - 1)
@@ -30,6 +32,7 @@ func _deferred_switch_to(res_path: String) -> void:
 		push_error("Failed to load scene: " + res_path)
 
 func _instant_switch_to(scene: PackedScene) -> void:
+	unload.emit()
 	if current_scene:
 		current_scene.queue_free()
 		await current_scene.tree_exited  # wait for the old scene to fully leave the tree

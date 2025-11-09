@@ -18,7 +18,12 @@ func _ready():
 	hitbox.collision_layer = layer
 	hitbox.collision_mask = mask
 	
+	SceneSwitcher.connect("unload", unload)
+	
 	await get_tree().create_timer(8.0).timeout
+	queue_free()
+
+func unload():
 	queue_free()
 	
 func _physics_process(delta: float) -> void:

@@ -9,7 +9,7 @@ var damage = 1
 var fire_rate = 1500
 
 var health_upgrade_costs = [6, 20, 40]
-var health_amts = [10, 20, 30]
+var health_amts = [10, 15, 25]
 var health_i = 0
 func upgrade_health():
 	if money < health_upgrade_costs[health_i]:
@@ -41,7 +41,7 @@ func upgrade_fire_rate():
 
 	
 var man_upgrade_costs = [5, 15, 20]
-var man_amts_speed = [10, 12, 14]
+var man_amts_speed = [10, 13, 15]
 var man_amts_turn = [19, 19, 19]
 var man_i = 0
 func upgrade_man():

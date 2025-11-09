@@ -160,6 +160,7 @@ animations = [{
 }]
 
 [node name="TransitionIn" type="CanvasLayer"]
+layer = 1000
 script = ExtResource("1_56tvc")
 
 [node name="TransitionIn" type="AnimatedSprite2D" parent="."]

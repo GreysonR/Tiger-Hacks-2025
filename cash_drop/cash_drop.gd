@@ -6,6 +6,7 @@ var cash_value = 10
 var CoinScene = preload("res://cash_drop/coin/coin.tscn")
 
 func _ready():
+	SceneSwitcher.connect("unload", unload)
 	for i in cash_value:
 		spawn_coin()
 
@@ -18,3 +19,6 @@ func spawn_coin():
 	coin.initial_velocity = dir * speed
 	
 	get_tree().root.call_deferred("add_child", coin)
+
+func unload():
+	queue_free()

@@ -1,7 +1,7 @@
 [gd_scene load_steps=28 format=3 uid="uid://15du2emk4fr0"]
 
-[ext_resource type="Texture2D" uid="uid://m6nyqu0eww4i" path="res://GUI/loading_screen/sprites/from_load.png" id="1_lqqk0"]
-[ext_resource type="Texture2D" uid="uid://csfp5re6jq15d" path="res://GUI/loading_screen/sprites/to_load.png" id="2_7bsc1"]
+[ext_resource type="Texture2D" uid="uid://2ne2n7ne7av8" path="res://GUI/loading_screen/sprites/from_load.png" id="1_lqqk0"]
+[ext_resource type="Texture2D" uid="uid://b6sb0j5fttljw" path="res://GUI/loading_screen/sprites/to_load.png" id="2_7bsc1"]
 [ext_resource type="FontFile" uid="uid://nq433qyhhrho" path="res://GUI/font/Dosis/static/Dosis-Bold.ttf" id="3_7bsc1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bydxr"]
@@ -176,6 +176,8 @@ font = ExtResource("3_7bsc1")
 font_size = 50
 
 [node name="Control" type="Control"]
+z_index = 1000
+z_as_relative = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

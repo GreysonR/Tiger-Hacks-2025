@@ -419,7 +419,7 @@ max_speed = 400.0
 [node name="BeehaveTree" type="Node" parent="." node_paths=PackedStringArray("blackboard", "actor")]
 unique_name_in_owner = true
 script = ExtResource("2_4niax")
-blackboard = NodePath("@Node@138964")
+blackboard = NodePath("@Node@31148")
 actor = NodePath("..")
 metadata/_custom_type_script = "uid://bb0t2ovl7wifo"
 

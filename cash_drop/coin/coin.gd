@@ -8,6 +8,8 @@ var initial_velocity = Vector2.ZERO
 
 func _ready():
 	linear_velocity = initial_velocity
+	
+	SceneSwitcher.connect("unload", unload)
 
 func _integrate_forces(state: PhysicsDirectBodyState2D):
 	if !player or !player.is_inside_tree():
@@ -21,3 +23,6 @@ func _integrate_forces(state: PhysicsDirectBodyState2D):
 func _on_hitbox_touched(node: Node2D) -> void:
 	if node.is_in_group("Player"):
 		queue_free()
+
+func unload():
+	queue_free()

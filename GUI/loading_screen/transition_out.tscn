@@ -160,6 +160,7 @@ animations = [{
 }]
 
 [node name="TransitionOut" type="CanvasLayer"]
+layer = 1000
 script = ExtResource("1_hf5br")
 
 [node name="TransitionOut" type="AnimatedSprite2D" parent="."]
