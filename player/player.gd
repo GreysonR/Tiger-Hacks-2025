@@ -5,10 +5,26 @@ extends CharacterBody2D
 @onready var boost_sprite = %BoostSprite
 @onready var ExplosionScene = preload("res://cannonball/hit_effects/radial_cannonball_explosion.tscn")
 
+@onready var cannon1 = %Cannon
+@onready var cannon2 = %Cannon2
+
 signal move(new_position: Vector2)
 signal damaged(new_health: int, damage: int, max_health: int)
 signal died()
 signal collected_coin()
+
+func _ready():
+	cannon1.fire_rate = PlayerStats.fire_rate
+	cannon1.damage = PlayerStats.damage
+	
+	cannon2.fire_rate = PlayerStats.fire_rate
+	cannon2.damage = PlayerStats.damage
+	
+	ship.acceleration = PlayerStats.speed
+	ship.turn_rate = PlayerStats.turn_rate
+	ship.max_health = PlayerStats.health
+	ship.health = PlayerStats.health
+	print(ship.max_health)
 
 func _physics_process(delta: float) -> void:
 	var ship_dir = Vector2.from_angle(rotation)
@@ -68,3 +84,8 @@ func collect_coin():
 func _on_hurtbox_touched(node: Node2D) -> void:
 	if node.is_in_group("Coin"):
 		collect_coin()
+
+
+func _on_died() -> void:
+	await get_tree().create_timer(2).timeout
+	SceneSwitcher.switch_to("res://main.tscn")

@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://btq3t4eny2bt8"]
+
+[ext_resource type="Script" uid="uid://1ijb2mpvdloj" path="res://main.gd" id="1_r2kkb"]
+[ext_resource type="PackedScene" uid="uid://sx1qxvutdk66" path="res://level1/level_1.tscn" id="2_0h7pn"]
+[ext_resource type="Script" uid="uid://dj3a7sqdboovd" path="res://camera_2d.gd" id="3_xaebr"]
+[ext_resource type="PackedScene" uid="uid://jtaox464040x" path="res://GUI/ingame_hud/ingame_hud.tscn" id="4_180jm"]
+[ext_resource type="PackedScene" uid="uid://cpwsaijqfwrx7" path="res://player/player.tscn" id="5_k571d"]
+
+[node name="level_1_wrap" type="Node2D"]
+script = ExtResource("1_r2kkb")
+
+[node name="Level1" parent="." instance=ExtResource("2_0h7pn")]
+metadata/_edit_lock_ = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_left = -2250
+limit_top = -2000
+limit_right = 2250
+limit_bottom = 2000
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 4.0
+script = ExtResource("3_xaebr")
+metadata/_edit_lock_ = true
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="InGameHud" parent="HUD" instance=ExtResource("4_180jm")]
+
+[node name="Player" parent="." instance=ExtResource("5_k571d")]
+unique_name_in_owner = true
+position = Vector2(-248, 636)
+rotation = -0.05669129
+up_direction = Vector2(0, 1)
+
+[connection signal="finish_wave" from="Level1" to="HUD/InGameHud" method="set_wave"]
+[connection signal="collected_coin" from="Player" to="HUD/InGameHud" method="_on_player_collected_coin"]
+[connection signal="damaged" from="Player" to="HUD/InGameHud" method="_on_player_damaged"]
+[connection signal="move" from="Player" to="Camera2D" method="_on_player_move"]
+[connection signal="ready" from="Player" to="HUD/InGameHud" method="_on_player_ready"]

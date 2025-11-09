@@ -7,10 +7,6 @@ extends Control
 @onready var wavebar = %Wavebar
 @onready var wave_text = %WaveText
 
-func _ready():
-	var player = get_tree().get_first_node_in_group("PlayerCharacter")
-	set_health(player.max_health, player.max_health)
-
 func set_health(health: int, max_health):
 	healthbar.max_value = max_health
 	healthbar.value = health
@@ -32,3 +28,7 @@ func _on_player_damaged(new_health: int, _damage: int, max_health) -> void:
 
 func _on_player_collected_coin() -> void:
 	set_money(PlayerStats.money)
+
+
+func _on_player_ready() -> void:
+	set_health(PlayerStats.health, PlayerStats.health)
