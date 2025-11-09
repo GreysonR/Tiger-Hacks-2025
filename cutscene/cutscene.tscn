@@ -1,0 +1,44 @@
+[gd_scene load_steps=8 format=3 uid="uid://bmjcn6effq5tw"]
+
+[ext_resource type="Texture2D" uid="uid://b4qc3fhuoy36e" path="res://cutscene/sprites/Intro_Cutscene.png" id="1_d3cms"]
+[ext_resource type="Script" uid="uid://eod6sv4ola67" path="res://cutscene/cutscene.gd" id="1_v82cg"]
+[ext_resource type="Texture2D" uid="uid://bec8dgawb0sr" path="res://cutscene/sprites/bubble1.png" id="2_chqc8"]
+[ext_resource type="Texture2D" uid="uid://cgl1172irkjeh" path="res://cutscene/sprites/bubble2.png" id="3_v82cg"]
+[ext_resource type="Texture2D" uid="uid://cbh03ioq7adpd" path="res://cutscene/sprites/bubble3.png" id="4_1ox3v"]
+[ext_resource type="Texture2D" uid="uid://d0fsmlmwnxx32" path="res://cutscene/sprites/bubble4.png" id="5_6k5ka"]
+[ext_resource type="Texture2D" uid="uid://d2qe0id08toyu" path="res://cutscene/sprites/dosis_added.png" id="7_1ox3v"]
+
+[node name="Cutscene" type="Node2D"]
+script = ExtResource("1_v82cg")
+
+[node name="bg" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(0, -47)
+texture = ExtResource("1_d3cms")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="dialog1" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(1396, 373)
+texture = ExtResource("2_chqc8")
+
+[node name="dialog2" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(1396, 373)
+texture = ExtResource("3_v82cg")
+
+[node name="dialog3" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(1394, 356)
+texture = ExtResource("4_1ox3v")
+
+[node name="dialog4" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(1394, 406)
+texture = ExtResource("5_6k5ka")
+
+[node name="dialog5" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(985, 936)
+texture = ExtResource("7_1ox3v")

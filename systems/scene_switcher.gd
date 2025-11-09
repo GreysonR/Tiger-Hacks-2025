@@ -56,6 +56,12 @@ func switch_to_win():
 		
 func _post_switch_to_win():
 	SceneSwitcher.switch_to("res://win/win.tscn")
+	
+func switch_to_game():
+	transition_out(_post_switch_to_game)
+
+func _post_switch_to_game():
+	SceneSwitcher.switch_to("res://level1/level_1_wrap.tscn")
 
 
 @onready var transition_in_scene = preload("res://GUI/loading_screen/transition_in.tscn")
