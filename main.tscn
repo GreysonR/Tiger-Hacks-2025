@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://dj3a7sqdboovd" path="res://camera_2d.gd" id="3_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://sx1qxvutdk66" path="res://level1/level_1.tscn" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://jtaox464040x" path="res://GUI/ingame_hud/ingame_hud.tscn" id="5_lquwl"]
-[ext_resource type="PackedScene" uid="uid://g0jebrdnaucv" path="res://enemy_sloop/enemy_sloop.tscn" id="6_7mycd"]
+[ext_resource type="PackedScene" uid="uid://btkpa3cgk5x6y" path="res://enemy_capital/enemy_capital.tscn" id="6_7mycd"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_0xm2m")
@@ -34,9 +34,9 @@ position = Vector2(786.00006, -636)
 rotation = 1.0471976
 up_direction = Vector2(0, 1)
 
-[node name="EnemySloop" parent="." instance=ExtResource("6_7mycd")]
-position = Vector2(1050, -791)
-rotation = 1.0471976
+[node name="EnemyCapital" parent="." instance=ExtResource("6_7mycd")]
+position = Vector2(1282, -604)
+rotation = 0.7853982
 
 [connection signal="collected_coin" from="Player" to="HUD/InGameHud" method="_on_player_collected_coin"]
 [connection signal="damaged" from="Player" to="HUD/InGameHud" method="_on_player_damaged"]
