@@ -15,8 +15,8 @@ func upgrade_health():
 	if money < health_upgrade_costs[health_i]:
 		return
 	health = health_amts[health_i]
+	money -= health_upgrade_costs[health_i]
 	health_i += 1
-	money -= health_upgrade_costs[fire_rate_i]
 
 
 var damage_upgrade_costs = [5, 20, 40]
@@ -25,9 +25,9 @@ var damage_i = 0
 func upgrade_damage():
 	if money < damage_upgrade_costs[damage_i]:
 		return
+	money -= damage_upgrade_costs[damage_i]
 	damage = damage_amts[damage_i]
 	damage_i += 1
-	money -= damage_upgrade_costs[fire_rate_i]
 	
 var fire_rate_upgrade_costs = [5, 15, 30]
 var fire_rate_amts = [1200, 1000, 700]
@@ -35,9 +35,9 @@ var fire_rate_i = 0
 func upgrade_fire_rate():
 	if money < fire_rate_upgrade_costs[fire_rate_i]:
 		return
+	money -= fire_rate_upgrade_costs[fire_rate_i]
 	fire_rate = fire_rate_amts[fire_rate_i]
 	fire_rate_i += 1
-	money -= fire_rate_upgrade_costs[fire_rate_i]
 
 	
 var man_upgrade_costs = [5, 15, 20]
@@ -47,7 +47,7 @@ var man_i = 0
 func upgrade_man():
 	if money < man_upgrade_costs[man_i]:
 		return
+	money -= man_upgrade_costs[man_i]
 	turn_rate = man_amts_turn[man_i]
 	speed = man_amts_speed[man_i]
 	man_i += 1
-	money -= man_upgrade_costs[fire_rate_i]
