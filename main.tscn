@@ -159,6 +159,7 @@ label_settings = SubResource("LabelSettings_yaehf")
 horizontal_alignment = 2
 
 [node name="Play" type="TextureButton" parent="."]
+unique_name_in_owner = true
 offset_left = 1010.0
 offset_top = 329.0
 offset_right = 1475.0

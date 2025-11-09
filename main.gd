@@ -21,9 +21,9 @@ extends Node2D
 @onready var money_text = %MoneyText
 
 func _ready():
-	if !health_btn:
-		return
+	update_buttons()
 	
+func update_buttons():
 	# Disabled if poor
 	health_btn.disabled = PlayerStats.health_i >= PlayerStats.health_upgrade_costs.size() || PlayerStats.money < PlayerStats.health_upgrade_costs[PlayerStats.health_i]
 	dmg_btn.disabled = PlayerStats.damage_i >= PlayerStats.damage_upgrade_costs.size() || PlayerStats.money < PlayerStats.damage_upgrade_costs[PlayerStats.damage_i]
@@ -43,7 +43,7 @@ func _ready():
 	damage_prog_t.text = str(PlayerStats.damage_i) + "/" + str(PlayerStats.damage_upgrade_costs.size())
 	rate_prog_t.text = str(PlayerStats.fire_rate_i) + "/" + str(PlayerStats.fire_rate_upgrade_costs.size())
 	man_prog_t.text = str(PlayerStats.man_i) + "/" + str(PlayerStats.man_upgrade_costs.size())
-	
+
 
 func _physics_process(_delta: float) -> void:
 	if OS.is_debug_build() && Input.is_action_just_pressed("quit"):
@@ -52,17 +52,21 @@ func _physics_process(_delta: float) -> void:
 
 func _on_upgrade_health_pressed() -> void:
 	PlayerStats.upgrade_health()
+	update_buttons()
 
 
 func _on_upgrade_damage_pressed() -> void:
 	PlayerStats.upgrade_damage()
+	update_buttons()
 
 func _on_upgrade_fire_rate_button_down() -> void:
 	PlayerStats.upgrade_fire_rate()
+	update_buttons()
 
 
 func _on_upgrade_maneuverability_pressed() -> void:
 	PlayerStats.upgrade_man()
+	update_buttons()
 
 func _on_play_button_down() -> void:
 	SceneSwitcher.switch_to("res://level1/level_1_wrap.tscn")

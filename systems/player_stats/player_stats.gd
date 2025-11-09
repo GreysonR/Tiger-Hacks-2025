@@ -4,11 +4,11 @@ var money: int = 0
 # Put upgrades here
 var speed = 8.0
 var turn_rate = 18.0
-var health = 5
+var health = 1
 var damage = 1
 var fire_rate = 1500
 
-var health_upgrade_costs = [6, 15, 20]
+var health_upgrade_costs = [6, 20, 40]
 var health_amts = [10, 20, 30]
 var health_i = 0
 func upgrade_health():
@@ -16,9 +16,10 @@ func upgrade_health():
 		return
 	health = health_amts[health_i]
 	health_i += 1
+	money -= health_upgrade_costs[fire_rate_i]
 
 
-var damage_upgrade_costs = [5, 10, 20]
+var damage_upgrade_costs = [5, 20, 40]
 var damage_amts = [2, 4, 8]
 var damage_i = 0
 func upgrade_damage():
@@ -26,8 +27,9 @@ func upgrade_damage():
 		return
 	damage = damage_amts[damage_i]
 	damage_i += 1
+	money -= damage_upgrade_costs[fire_rate_i]
 	
-var fire_rate_upgrade_costs = [5, 10, 20]
+var fire_rate_upgrade_costs = [5, 15, 30]
 var fire_rate_amts = [1200, 1000, 700]
 var fire_rate_i = 0
 func upgrade_fire_rate():
@@ -35,9 +37,10 @@ func upgrade_fire_rate():
 		return
 	fire_rate = fire_rate_amts[fire_rate_i]
 	fire_rate_i += 1
+	money -= fire_rate_upgrade_costs[fire_rate_i]
 
 	
-var man_upgrade_costs = [5, 10, 20]
+var man_upgrade_costs = [5, 15, 20]
 var man_amts_speed = [10, 12, 14]
 var man_amts_turn = [19, 19, 19]
 var man_i = 0
@@ -47,3 +50,8 @@ func upgrade_man():
 	turn_rate = man_amts_turn[man_i]
 	speed = man_amts_speed[man_i]
 	man_i += 1
+	money -= man_upgrade_costs[fire_rate_i]
+
+func switch_to_home():
+	await get_tree().create_timer(2).timeout
+	SceneSwitcher.switch_to("res://main.tscn")

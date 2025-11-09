@@ -72,10 +72,12 @@ func _on_ship_damaged(new_health: int, damage: int) -> void:
 
 func _on_ship_died(_node) -> void:
 	died.emit()
-	queue_free()
 	var explosion = ExplosionScene.instantiate()
 	explosion.position = global_position
 	get_tree().root.add_child(explosion)
+	PlayerStats.switch_to_home()
+	queue_free()
+	
 
 func collect_coin():
 	PlayerStats.money += 1
@@ -84,8 +86,3 @@ func collect_coin():
 func _on_hurtbox_touched(node: Node2D) -> void:
 	if node.is_in_group("Coin"):
 		collect_coin()
-
-
-func _on_died() -> void:
-	await get_tree().create_timer(2).timeout
-	SceneSwitcher.switch_to("res://main.tscn")
