@@ -6,6 +6,7 @@ extends Node2D
 signal finish_wave(wave, max_waves)
 
 func _ready():
+	SceneSwitcher.switch_to_win()
 	finish_wave.emit(wave_n + 1, waves.size())
 	# spawn first wave
 	for wave in waves:
@@ -22,7 +23,7 @@ func next_wave():
 	wave_n += 1
 	finish_wave.emit(wave_n + 1, waves.size())
 	if wave_n >= waves.size():
-		print("Done!")
+		SceneSwitcher.switch_to_win()
 		return
 	
 	add_child(waves[wave_n])

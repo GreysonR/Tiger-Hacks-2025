@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://1whmicqu1ghb"]
+
+[ext_resource type="Texture2D" uid="uid://b5hhc01jq5dlh" path="res://win/sprites/win_bg.png" id="1_i4kqt"]
+
+[node name="Win" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -117)
+scale = Vector2(0.63939726, 0.6393972)
+texture = ExtResource("1_i4kqt")
+centered = false

@@ -49,6 +49,13 @@ func switch_to_home():
 		
 func _post_switch_to_home():
 	SceneSwitcher.switch_to("res://main.tscn")
+	
+func switch_to_win():
+	await get_tree().create_timer(2).timeout
+	transition_out(_post_switch_to_win)
+		
+func _post_switch_to_win():
+	SceneSwitcher.switch_to("res://win/win.tscn")
 
 
 @onready var transition_in_scene = preload("res://GUI/loading_screen/transition_in.tscn")
