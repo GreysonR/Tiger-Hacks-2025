@@ -7,6 +7,9 @@ extends Control
 @onready var wavebar = %Wavebar
 @onready var wave_text = %WaveText
 
+func _ready():
+	set_money(PlayerStats.money)
+
 func set_health(health: int, max_health):
 	healthbar.max_value = max_health
 	healthbar.value = health
