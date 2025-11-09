@@ -16,8 +16,7 @@ script = ExtResource("3_yqlsd")
 metadata/_edit_lock_ = true
 
 [node name="CannonRed4" parent="." instance=ExtResource("4_e3gmn")]
-position = Vector2(-400, 359)
-rotation = -2.6179938
+position = Vector2(-754, 572)
 scale = Vector2(0.99999994, 0.99999994)
 
 [node name="CannonRed10" parent="." instance=ExtResource("4_e3gmn")]
