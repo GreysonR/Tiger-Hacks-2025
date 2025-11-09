@@ -35,10 +35,22 @@ func update_buttons():
 	money_text.text = str(PlayerStats.money)
 	
 	# Update all the text values
-	health_cost_t.text = str(PlayerStats.health_upgrade_costs[PlayerStats.health_i])
-	damage_cost_t.text = str(PlayerStats.damage_upgrade_costs[PlayerStats.damage_i])
-	rate_cost_t.text = str(PlayerStats.fire_rate_upgrade_costs[PlayerStats.fire_rate_i])
-	man_cost_t.text = str(PlayerStats.man_upgrade_costs[PlayerStats.man_i])
+	if PlayerStats.health_i < PlayerStats.health_upgrade_costs.size():
+		health_cost_t.text = str(PlayerStats.health_upgrade_costs[PlayerStats.health_i])
+	else:
+		health_cost_t.text = "-"
+	if PlayerStats.damage_i < PlayerStats.damage_upgrade_costs.size():
+		damage_cost_t.text = str(PlayerStats.damage_upgrade_costs[PlayerStats.damage_i])
+	else:
+		damage_cost_t.text = "-"
+	if PlayerStats.fire_rate_i < PlayerStats.fire_rate_upgrade_costs.size():
+		rate_cost_t.text = str(PlayerStats.fire_rate_upgrade_costs[PlayerStats.fire_rate_i])
+	else:
+		rate_cost_t.text = "-"
+	if PlayerStats.man_i < PlayerStats.man_upgrade_costs.size():
+		man_cost_t.text = str(PlayerStats.man_upgrade_costs[PlayerStats.man_i])
+	else:
+		man_cost_t.text = "-"
 	
 	health_prog_t.text = str(PlayerStats.health_i) + "/" + str(PlayerStats.health_upgrade_costs.size())
 	damage_prog_t.text = str(PlayerStats.damage_i) + "/" + str(PlayerStats.damage_upgrade_costs.size())
