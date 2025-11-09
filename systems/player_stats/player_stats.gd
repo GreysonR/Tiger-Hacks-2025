@@ -4,7 +4,7 @@ var money: int = 0
 # Put upgrades here
 var speed = 8.0
 var turn_rate = 18.0
-var health = 1
+var health = 5
 var damage = 1
 var fire_rate = 1500
 
