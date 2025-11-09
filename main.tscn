@@ -35,16 +35,8 @@ rotation = 1.0471976
 up_direction = Vector2(0, 1)
 
 [node name="EnemySloop" parent="." instance=ExtResource("6_7mycd")]
-position = Vector2(1175.9999, -714)
-rotation = 3.6651917
-
-[node name="EnemySloop2" parent="." instance=ExtResource("6_7mycd")]
-position = Vector2(945, -874.99994)
-rotation = 1.8325958
-
-[node name="EnemySloop3" parent="." instance=ExtResource("6_7mycd")]
-position = Vector2(300, -791)
-rotation = 0.7853982
+position = Vector2(1050, -791)
+rotation = 1.0471976
 
 [connection signal="collected_coin" from="Player" to="HUD/InGameHud" method="_on_player_collected_coin"]
 [connection signal="damaged" from="Player" to="HUD/InGameHud" method="_on_player_damaged"]
