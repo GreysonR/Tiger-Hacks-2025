@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal died(node)
+
 @export var ship: Ship
 @onready var boost_sprite = %BoostSprite
 @onready var healthbar = %Healthbar
@@ -66,7 +68,8 @@ func _on_ship_damaged(new_health: int, _damage: int) -> void:
 	healthbar.set_health(new_health, ship.max_health)
 
 
-func _on_ship_died() -> void:
+func _on_ship_died(_node) -> void:
+	died.emit(self)
 	queue_free()
 	var explosion = ExplosionScene.instantiate()
 	explosion.position = global_position

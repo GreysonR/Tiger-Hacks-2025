@@ -9,7 +9,7 @@ func _ready():
 func _on_damaged(new_health: int, _damage: int) -> void:
 	healthbar.set_health(new_health, max_health)
 
-func _on_died() -> void:
+func _on_died(_node) -> void:
 	queue_free()
 	
 	var explosion = ExplosionScene.instantiate()

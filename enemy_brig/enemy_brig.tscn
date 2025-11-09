@@ -454,7 +454,7 @@ max_speed = 400.0
 [node name="BeehaveTree" type="Node" parent="." node_paths=PackedStringArray("blackboard", "actor")]
 unique_name_in_owner = true
 script = ExtResource("2_gy3ou")
-blackboard = NodePath("@Node@21065")
+blackboard = NodePath("@Node@37881")
 actor = NodePath("..")
 metadata/_custom_type_script = "uid://bb0t2ovl7wifo"
 
@@ -491,14 +491,14 @@ turn_threshold = 300.0
 backward_multiplier = 0.7
 cannons = [NodePath("Cannon"), NodePath("Cannon2"), NodePath("Cannon3"), NodePath("Cannon4")]
 parent_body = NodePath("..")
-max_health = 25
-cash_value = 15
+max_health = 30
+cash_value = 20
 metadata/_custom_type_script = "uid://dho1go2jsex0e"
 
 [node name="Cannon" parent="Ship" node_paths=PackedStringArray("animation_player") instance=ExtResource("10_v0xfb")]
 position = Vector2(-22, -39)
 rotation = -1.5707964
-damage = 2
+damage = 4
 fire_rate = 1500.0
 collision_layer = 4
 collision_mask = 3
@@ -518,7 +518,7 @@ animation = &"idle"
 [node name="Cannon2" parent="Ship" node_paths=PackedStringArray("animation_player") instance=ExtResource("10_v0xfb")]
 position = Vector2(33, -39)
 rotation = -1.5707964
-damage = 2
+damage = 4
 fire_rate = 1500.0
 collision_layer = 4
 collision_mask = 3
@@ -538,6 +538,7 @@ animation = &"idle"
 [node name="Cannon3" parent="Ship" node_paths=PackedStringArray("animation_player") instance=ExtResource("10_v0xfb")]
 position = Vector2(-22, 41)
 rotation = 1.5707964
+damage = 4
 fire_rate = 1500.0
 collision_layer = 4
 collision_mask = 3
@@ -557,6 +558,7 @@ animation = &"idle"
 [node name="Cannon4" parent="Ship" node_paths=PackedStringArray("animation_player") instance=ExtResource("10_v0xfb")]
 position = Vector2(33, 41)
 rotation = 1.5707964
+damage = 4
 fire_rate = 1500.0
 collision_layer = 4
 collision_mask = 3

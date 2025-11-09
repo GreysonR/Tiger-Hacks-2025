@@ -2,7 +2,7 @@ extends Node2D
 class_name Character
 
 signal damaged(new_health: int, damage: int)
-signal died()
+signal died(node)
 
 @export var parent_body: CharacterBody2D
 @export var max_health: int = 20
@@ -20,7 +20,7 @@ func take_damage(damage: int):
 	damaged.emit(health, damage_dealt)
 	
 	if health <= 0:
-		died.emit()
+		died.emit(self)
 		drop_cash()
 
 func take_knockback(knockback: Vector2):

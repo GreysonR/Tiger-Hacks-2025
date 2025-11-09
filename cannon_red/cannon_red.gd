@@ -2,16 +2,22 @@ extends CharacterBody2D
 
 @export var character: Character
 
+signal died(node)
+
 @onready var cannon = %Cannon
 @onready var player = get_tree().get_first_node_in_group("PlayerCharacter")
 @onready var healthbar = %Healthbar
 
 @onready var ExplosionScene = preload("res://cannonball/hit_effects/radial_cannonball_explosion.tscn")
 
+func _physics_process(_delta: float) -> void:
+	healthbar.rotation = -global_rotation
+
 func _on_character_damaged(new_health: int, _damage: int) -> void:
 	healthbar.set_health(new_health, character.max_health)
 
-func _on_character_died() -> void:
+func _on_character_died(_node) -> void:
+	died.emit(self)
 	queue_free()
 	var explosion = ExplosionScene.instantiate()
 	explosion.position = global_position

@@ -1,0 +1,68 @@
+[gd_scene load_steps=7 format=3 uid="uid://cfjxwf1q8egkv"]
+
+[ext_resource type="Script" uid="uid://40gha2vbgeg" path="res://level1/waves/wave_0.gd" id="1_3vgg4"]
+[ext_resource type="Texture2D" uid="uid://nu4lmqncqdau" path="res://art/Level1.png" id="2_68ohx"]
+[ext_resource type="Script" uid="uid://ccu7utcoev2k0" path="res://level1/waves/view.gd" id="3_yqlsd"]
+[ext_resource type="PackedScene" uid="uid://ddbjns5jmx5q2" path="res://cannon_red/cannon_red.tscn" id="4_e3gmn"]
+[ext_resource type="PackedScene" uid="uid://bb2frbq36ccbj" path="res://powder_keg/powder_keg.tscn" id="5_qhias"]
+[ext_resource type="PackedScene" uid="uid://g0jebrdnaucv" path="res://enemy_sloop/enemy_sloop.tscn" id="6_68ohx"]
+
+[node name="Wave1" type="Node2D"]
+script = ExtResource("1_3vgg4")
+
+[node name="View" type="Sprite2D" parent="." groups=["Unnecessary"]]
+texture = ExtResource("2_68ohx")
+script = ExtResource("3_yqlsd")
+metadata/_edit_lock_ = true
+
+[node name="CannonRed4" parent="." instance=ExtResource("4_e3gmn")]
+position = Vector2(-400, 359)
+rotation = -2.6179938
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="CannonRed10" parent="." instance=ExtResource("4_e3gmn")]
+position = Vector2(694, 27.000006)
+rotation = -4.603612
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="CannonRed11" parent="." instance=ExtResource("4_e3gmn")]
+position = Vector2(580.00006, 849.0001)
+rotation = -2.3561945
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="CannonRed13" parent="." instance=ExtResource("4_e3gmn")]
+position = Vector2(116.000015, 398.00003)
+rotation = -5.9090967
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="PowderKeg7" parent="." instance=ExtResource("5_qhias")]
+position = Vector2(445, -752)
+rotation = 2.8797934
+
+[node name="PowderKeg9" parent="." instance=ExtResource("5_qhias")]
+position = Vector2(672, 327.99997)
+rotation = 2.7862027
+
+[node name="PowderKeg10" parent="." instance=ExtResource("5_qhias")]
+position = Vector2(644.99994, 978.00006)
+rotation = -0.2617994
+
+[node name="PowderKeg11" parent="." instance=ExtResource("5_qhias")]
+position = Vector2(452, 440)
+rotation = 1.5707964
+
+[node name="PowderKeg12" parent="." instance=ExtResource("5_qhias")]
+position = Vector2(684, 721)
+rotation = 2.6179938
+
+[node name="PowderKeg13" parent="." instance=ExtResource("5_qhias")]
+position = Vector2(795.00006, 430.00006)
+rotation = 2.0943952
+
+[node name="EnemySloop" parent="." instance=ExtResource("6_68ohx")]
+position = Vector2(-8.999985, -805.99994)
+rotation = 2.7277925
+
+[node name="PowderKeg8" parent="." instance=ExtResource("5_qhias")]
+position = Vector2(989.99994, -212.00003)
+rotation = 1.8414936

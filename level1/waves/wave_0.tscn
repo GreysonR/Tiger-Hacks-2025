@@ -1,0 +1,76 @@
+[gd_scene load_steps=6 format=3 uid="uid://cc0jfjo4en204"]
+
+[ext_resource type="Script" uid="uid://40gha2vbgeg" path="res://level1/waves/wave_0.gd" id="1_mwlpq"]
+[ext_resource type="PackedScene" uid="uid://ddbjns5jmx5q2" path="res://cannon_red/cannon_red.tscn" id="2_bwx6m"]
+[ext_resource type="Texture2D" uid="uid://nu4lmqncqdau" path="res://art/Level1.png" id="2_y12xw"]
+[ext_resource type="Script" uid="uid://ccu7utcoev2k0" path="res://level1/waves/view.gd" id="3_4o4db"]
+[ext_resource type="PackedScene" uid="uid://bb2frbq36ccbj" path="res://powder_keg/powder_keg.tscn" id="4_541lj"]
+
+[node name="Wave0" type="Node2D"]
+script = ExtResource("1_mwlpq")
+
+[node name="View" type="Sprite2D" parent="." groups=["Unnecessary"]]
+texture = ExtResource("2_y12xw")
+script = ExtResource("3_4o4db")
+metadata/_edit_lock_ = true
+
+[node name="CannonRed" parent="." instance=ExtResource("2_bwx6m")]
+position = Vector2(572.99994, 153.00003)
+rotation = -0.5235988
+
+[node name="CannonRed3" parent="." instance=ExtResource("2_bwx6m")]
+position = Vector2(1542, -132)
+rotation = -3.1415927
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="CannonRed4" parent="." instance=ExtResource("2_bwx6m")]
+position = Vector2(350, -582.00006)
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="PowderKeg" parent="." instance=ExtResource("4_541lj")]
+position = Vector2(1345, -614)
+rotation = -2.3561945
+
+[node name="PowderKeg2" parent="." instance=ExtResource("4_541lj")]
+position = Vector2(1659.9999, 50.00006)
+rotation = -3.6651917
+
+[node name="PowderKeg3" parent="." instance=ExtResource("4_541lj")]
+position = Vector2(1656, -80.00006)
+rotation = 3.926991
+
+[node name="CannonRed5" parent="." instance=ExtResource("2_bwx6m")]
+position = Vector2(1584, -29.00003)
+rotation = -3.403392
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="PowderKeg4" parent="." instance=ExtResource("4_541lj")]
+position = Vector2(1604.0001, -198.00003)
+rotation = -5.134147
+
+[node name="CannonRed6" parent="." instance=ExtResource("2_bwx6m")]
+position = Vector2(197.99998, -609)
+rotation = -0.5235988
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="CannonRed8" parent="." instance=ExtResource("2_bwx6m")]
+position = Vector2(-901, -585.99994)
+rotation = -0.5235988
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="CannonRed9" parent="." instance=ExtResource("2_bwx6m")]
+position = Vector2(-466, -166.99998)
+rotation = -0.5235988
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="PowderKeg5" parent="." instance=ExtResource("4_541lj")]
+position = Vector2(85, -597)
+rotation = 1.3089969
+
+[node name="PowderKeg6" parent="." instance=ExtResource("4_541lj")]
+position = Vector2(-576, -500.00006)
+rotation = 2.8797934
+
+[node name="PowderKeg7" parent="." instance=ExtResource("4_541lj")]
+position = Vector2(-920, -695.9999)
+rotation = 5.5478926

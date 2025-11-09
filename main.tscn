@@ -1,11 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://hndeylx84u07"]
+[gd_scene load_steps=6 format=3 uid="uid://hndeylx84u07"]
 
 [ext_resource type="Script" uid="uid://1ijb2mpvdloj" path="res://main.gd" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://cpwsaijqfwrx7" path="res://player/player.tscn" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://dj3a7sqdboovd" path="res://camera_2d.gd" id="3_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://sx1qxvutdk66" path="res://level1/level_1.tscn" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://jtaox464040x" path="res://GUI/ingame_hud/ingame_hud.tscn" id="5_lquwl"]
-[ext_resource type="PackedScene" uid="uid://btkpa3cgk5x6y" path="res://enemy_capital/enemy_capital.tscn" id="6_7mycd"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_0xm2m")
@@ -30,14 +29,11 @@ metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("1_ig7tw")]
 unique_name_in_owner = true
-position = Vector2(786.00006, -636)
-rotation = 1.0471976
+position = Vector2(-248, 636)
+rotation = -0.05669129
 up_direction = Vector2(0, 1)
 
-[node name="EnemyCapital" parent="." instance=ExtResource("6_7mycd")]
-position = Vector2(1282, -604)
-rotation = 0.7853982
-
+[connection signal="finish_wave" from="Level1" to="HUD/InGameHud" method="set_wave"]
 [connection signal="collected_coin" from="Player" to="HUD/InGameHud" method="_on_player_collected_coin"]
 [connection signal="damaged" from="Player" to="HUD/InGameHud" method="_on_player_damaged"]
 [connection signal="move" from="Player" to="Camera2D" method="_on_player_move"]

@@ -17,7 +17,7 @@ func tick(actor: Node, _blackboard: Blackboard) -> int:
 	actor.turn_dir = sign(angle_diff)
 	
 	actor.forward_dir = 1
-	if abs(angle_diff) > PI * 0.7: # almost directly behind
+	if false && abs(angle_diff) > PI * 0.7: # almost directly behind; disabled for now
 		actor.forward_dir = -1
 		actor.turn_dir *= -1 # turning is reversed
 	

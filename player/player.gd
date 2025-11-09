@@ -54,9 +54,8 @@ func _on_ship_damaged(new_health: int, damage: int) -> void:
 	damaged.emit(new_health, damage, ship.max_health)
 
 
-func _on_ship_died() -> void:
+func _on_ship_died(_node) -> void:
 	died.emit()
-	
 	queue_free()
 	var explosion = ExplosionScene.instantiate()
 	explosion.position = global_position

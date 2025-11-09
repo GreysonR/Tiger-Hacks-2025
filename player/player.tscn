@@ -429,16 +429,19 @@ ship = NodePath("Ship")
 
 [node name="Ship" type="Node2D" parent="." node_paths=PackedStringArray("cannons", "parent_body") groups=["PlayerCharacter"]]
 script = ExtResource("3_g1dw6")
+acceleration = 8.0
+turn_rate = 18.0
+turn_threshold = 350.0
 cannons = [NodePath("Cannon"), NodePath("Cannon2")]
 parent_body = NodePath("..")
+max_health = 5
 metadata/_custom_type_script = "uid://dho1go2jsex0e"
 
 [node name="Cannon" parent="Ship" node_paths=PackedStringArray("animation_player") instance=ExtResource("3_qjkh3")]
 position = Vector2(0, -37)
 rotation = -1.5707964
-damage = 3
-speed = 450.0
-angle_range = 100.0
+speed = 500.0
+angle_range = 110.0
 collision_layer = 2
 collision_mask = 5
 animation_player = NodePath("AnimationPlayer")
@@ -458,9 +461,8 @@ animation = &"idle"
 [node name="Cannon2" parent="Ship" node_paths=PackedStringArray("animation_player") instance=ExtResource("3_qjkh3")]
 position = Vector2(0, 37)
 rotation = 1.5707964
-damage = 3
-speed = 450.0
-angle_range = 100.0
+speed = 500.0
+angle_range = 110.0
 collision_layer = 2
 collision_mask = 5
 animation_player = NodePath("AnimationPlayer")

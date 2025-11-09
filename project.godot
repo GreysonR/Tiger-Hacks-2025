@@ -41,6 +41,7 @@ Enemy=""
 PlayerCharacter="player character themselves"
 Coin="pickupable coin"
 navigation_polygon_source_geometry_group=""
+Unnecessary="Not necessary to kill in waves"
 
 [input]
 

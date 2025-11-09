@@ -18,21 +18,6 @@
 [ext_resource type="PackedScene" uid="uid://cqmv7o0lm7pk6" path="res://systems/damage/hitbox.tscn" id="16_ccki8"]
 [ext_resource type="PackedScene" uid="uid://dp4u0ehqdagfh" path="res://GUI/enemy_healthbar/enemy_healthbar.tscn" id="17_h0gi3"]
 
-[sub_resource type="Animation" id="Animation_ep0xn"]
-resource_name = "idle"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"idle"]
-}
-
 [sub_resource type="Animation" id="Animation_cfux3"]
 length = 0.001
 tracks/0/type = "value"
@@ -70,6 +55,21 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(-20, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ep0xn"]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idle"]
 }
 
 [sub_resource type="Animation" id="Animation_efxek"]
@@ -356,8 +356,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k6fvs"]
-radius = 62.0
-height = 346.0
+radius = 65.0
+height = 360.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4niax"]
 atlas = ExtResource("14_efxek")
@@ -401,7 +401,7 @@ height = 346.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4niax"]
 radius = 60.0
-height = 346.0
+height = 380.0
 
 [node name="EnemyCapital" type="CharacterBody2D" node_paths=PackedStringArray("ship")]
 z_index = 1
@@ -419,7 +419,7 @@ max_speed = 400.0
 [node name="BeehaveTree" type="Node" parent="." node_paths=PackedStringArray("blackboard", "actor")]
 unique_name_in_owner = true
 script = ExtResource("2_4niax")
-blackboard = NodePath("@Node@48439")
+blackboard = NodePath("@Node@138964")
 actor = NodePath("..")
 metadata/_custom_type_script = "uid://bb0t2ovl7wifo"
 
@@ -450,20 +450,20 @@ metadata/_custom_type_script = "uid://cv74jjdrwevpr"
 
 [node name="Ship" type="Node2D" parent="." node_paths=PackedStringArray("cannons", "parent_body") groups=["Enemy"]]
 script = ExtResource("9_htowq")
-acceleration = 4.0
+acceleration = 3.5
 turn_rate = 6.0
 turn_threshold = 300.0
 backward_multiplier = 0.7
 cannons = [NodePath("Cannon"), NodePath("Cannon2"), NodePath("Cannon3"), NodePath("Cannon4"), NodePath("Cannon5"), NodePath("Cannon6")]
 parent_body = NodePath("..")
-max_health = 70
-cash_value = 70
+max_health = 80
+cash_value = 100
 metadata/_custom_type_script = "uid://dho1go2jsex0e"
 
 [node name="Cannon" parent="Ship" node_paths=PackedStringArray("animation_player") instance=ExtResource("10_078ql")]
 position = Vector2(-40, -64)
 rotation = -1.5707964
-damage = 2
+damage = 5
 fire_rate = 1500.0
 collision_layer = 4
 collision_mask = 3
@@ -483,7 +483,7 @@ animation = &"shoot"
 [node name="Cannon2" parent="Ship" node_paths=PackedStringArray("animation_player") instance=ExtResource("10_078ql")]
 position = Vector2(9, -65)
 rotation = -1.5707964
-damage = 2
+damage = 5
 fire_rate = 1500.0
 collision_layer = 4
 collision_mask = 3
@@ -503,7 +503,7 @@ animation = &"shoot"
 [node name="Cannon3" parent="Ship" node_paths=PackedStringArray("animation_player") instance=ExtResource("10_078ql")]
 position = Vector2(57, -65)
 rotation = -1.5707964
-damage = 2
+damage = 5
 fire_rate = 1500.0
 collision_layer = 4
 collision_mask = 3
@@ -523,7 +523,7 @@ animation = &"shoot"
 [node name="Cannon4" parent="Ship" node_paths=PackedStringArray("animation_player") instance=ExtResource("10_078ql")]
 position = Vector2(-40, 66)
 rotation = 1.5707964
-damage = 2
+damage = 5
 fire_rate = 1500.0
 collision_layer = 4
 collision_mask = 3
@@ -543,7 +543,7 @@ animation = &"shoot"
 [node name="Cannon5" parent="Ship" node_paths=PackedStringArray("animation_player") instance=ExtResource("10_078ql")]
 position = Vector2(9, 67)
 rotation = 1.5707964
-damage = 2
+damage = 5
 fire_rate = 1500.0
 collision_layer = 4
 collision_mask = 3
@@ -563,7 +563,7 @@ animation = &"shoot"
 [node name="Cannon6" parent="Ship" node_paths=PackedStringArray("animation_player") instance=ExtResource("10_078ql")]
 position = Vector2(57, 68)
 rotation = 1.5707964
-damage = 2
+damage = 5
 fire_rate = 1500.0
 collision_layer = 4
 collision_mask = 3
@@ -581,7 +581,7 @@ sprite_frames = SubResource("SpriteFrames_i483m")
 animation = &"shoot"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(17, 0)
+position = Vector2(9, 0)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_k6fvs")
 
@@ -610,11 +610,11 @@ shape = SubResource("CapsuleShape2D_efxek")
 [node name="Hitbox" parent="." groups=["Enemy"] instance=ExtResource("16_ccki8")]
 collision_layer = 4
 collision_mask = 3
-damage = 5
+damage = 8
 knockback = 300.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(16, 2)
+position = Vector2(-1, 2)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_4niax")
 

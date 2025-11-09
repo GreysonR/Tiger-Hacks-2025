@@ -10,6 +10,8 @@ func _ready():
 	linear_velocity = initial_velocity
 
 func _integrate_forces(state: PhysicsDirectBodyState2D):
+	if !player or !player.is_inside_tree():
+		return
 	var distance = player.global_position - global_position
 	if distance.length() < pickup_distance:
 		state.apply_force(distance.normalized() * pickup_strength, state.center_of_mass)
