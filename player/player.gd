@@ -75,7 +75,7 @@ func _on_ship_died(_node) -> void:
 	var explosion = ExplosionScene.instantiate()
 	explosion.position = global_position
 	get_tree().root.add_child(explosion)
-	PlayerStats.switch_to_home()
+	SceneSwitcher.switch_to_home()
 	queue_free()
 	
 

@@ -51,7 +51,3 @@ func upgrade_man():
 	speed = man_amts_speed[man_i]
 	man_i += 1
 	money -= man_upgrade_costs[fire_rate_i]
-
-func switch_to_home():
-	await get_tree().create_timer(2).timeout
-	SceneSwitcher.switch_to("res://main.tscn")

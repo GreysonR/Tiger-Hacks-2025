@@ -38,3 +38,27 @@ func _instant_switch_to(scene: PackedScene) -> void:
 	current_scene = scene.instantiate()
 	root.add_child(current_scene)
 	get_tree().set_current_scene(current_scene)
+
+
+func switch_to_home():
+	await get_tree().create_timer(2).timeout
+	transition_out(_post_switch_to_home)
+		
+func _post_switch_to_home():
+	SceneSwitcher.switch_to("res://main.tscn")
+
+
+@onready var transition_in_scene = preload("res://GUI/loading_screen/transition_in.tscn")
+@onready var transition_out_scene = preload("res://GUI/loading_screen/transition_out.tscn")
+func transition_in(callback):
+	var obj = transition_in_scene.instantiate()
+	get_tree().root.add_child(obj)
+	if callback:
+		obj.connect("animation_finished", callback)
+
+func transition_out(callback):
+	var obj = transition_out_scene.instantiate()
+	get_tree().root.add_child(obj)
+	
+	if callback:
+		obj.connect("animation_finished", callback)

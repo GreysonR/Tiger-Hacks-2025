@@ -21,6 +21,7 @@ extends Node2D
 @onready var money_text = %MoneyText
 
 func _ready():
+	SceneSwitcher.transition_in(false)
 	update_buttons()
 	
 func update_buttons():
@@ -69,4 +70,7 @@ func _on_upgrade_maneuverability_pressed() -> void:
 	update_buttons()
 
 func _on_play_button_down() -> void:
+	SceneSwitcher.transition_out(_post_on_play_button_down)
+	
+func _post_on_play_button_down():
 	SceneSwitcher.switch_to("res://level1/level_1_wrap.tscn")
