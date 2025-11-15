@@ -34,28 +34,16 @@ position = Vector2(116.000015, 398.00003)
 rotation = -5.9090967
 scale = Vector2(0.99999994, 0.99999994)
 
-[node name="PowderKeg7" parent="." instance=ExtResource("5_qhias")]
-position = Vector2(445, -752)
-rotation = 2.8797934
-
-[node name="PowderKeg9" parent="." instance=ExtResource("5_qhias")]
-position = Vector2(672, 327.99997)
-rotation = 2.7862027
-
 [node name="PowderKeg10" parent="." instance=ExtResource("5_qhias")]
 position = Vector2(644.99994, 978.00006)
 rotation = -0.2617994
 
-[node name="PowderKeg11" parent="." instance=ExtResource("5_qhias")]
-position = Vector2(452, 440)
-rotation = 1.5707964
-
 [node name="PowderKeg12" parent="." instance=ExtResource("5_qhias")]
-position = Vector2(684, 721)
+position = Vector2(670, 792)
 rotation = 2.6179938
 
 [node name="PowderKeg13" parent="." instance=ExtResource("5_qhias")]
-position = Vector2(795.00006, 430.00006)
+position = Vector2(186, 320)
 rotation = 2.0943952
 
 [node name="EnemySloop" parent="." instance=ExtResource("6_68ohx")]

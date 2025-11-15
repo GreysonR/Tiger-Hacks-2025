@@ -16,58 +16,25 @@ texture = ExtResource("2_4nmax")
 script = ExtResource("3_p8apy")
 metadata/_edit_lock_ = true
 
-[node name="CannonRed4" parent="." instance=ExtResource("4_ofthn")]
-position = Vector2(-538, -237.00002)
-rotation = -2.6179938
-scale = Vector2(0.99999994, 0.99999994)
-
 [node name="EnemySloop" parent="." instance=ExtResource("5_t0nr7")]
 position = Vector2(1613, -1310)
 rotation = 0.5235988
 
 [node name="PowderKeg8" parent="." instance=ExtResource("6_tclkt")]
-position = Vector2(-216.99997, -495)
+position = Vector2(-674, -773)
 rotation = 2.0943952
-
-[node name="PowderKeg9" parent="." instance=ExtResource("6_tclkt")]
-position = Vector2(-469.99997, -1266.9999)
-rotation = 3.9958055
-
-[node name="PowderKeg10" parent="." instance=ExtResource("6_tclkt")]
-position = Vector2(1174.9999, -486)
-rotation = 1.8414936
-
-[node name="PowderKeg11" parent="." instance=ExtResource("6_tclkt")]
-position = Vector2(1630, 1210)
-rotation = 2.4112134
-
-[node name="PowderKeg12" parent="." instance=ExtResource("6_tclkt")]
-position = Vector2(-501, 183)
-rotation = 3.403392
-
-[node name="PowderKeg13" parent="." instance=ExtResource("6_tclkt")]
-position = Vector2(1508, 1346)
-rotation = 3.403392
 
 [node name="EnemySloop2" parent="." instance=ExtResource("5_t0nr7")]
 position = Vector2(-1239, -309.00003)
 rotation = 6.467915
 
 [node name="EnemyBrig" parent="." instance=ExtResource("7_203nu")]
-position = Vector2(-770.9999, 1116)
-rotation = -7.311616
+position = Vector2(-1892.0001, 1143.0001)
+rotation = -6.8225803
 
 [node name="PowderKeg14" parent="." instance=ExtResource("6_tclkt")]
-position = Vector2(977, -927)
-rotation = 2.3382752
-
-[node name="PowderKeg15" parent="." instance=ExtResource("6_tclkt")]
-position = Vector2(-985, 440.00003)
-rotation = -1.5707964
-
-[node name="PowderKeg16" parent="." instance=ExtResource("6_tclkt")]
-position = Vector2(323, -1152)
-rotation = 3.6651917
+position = Vector2(945, -894)
+rotation = 2.5625439
 
 [node name="EnemyBrig2" parent="." instance=ExtResource("7_203nu")]
 position = Vector2(-213.00006, 1313)
@@ -81,41 +48,11 @@ rotation = -5.5184345
 position = Vector2(1018, 1523)
 rotation = 3.1415927
 
-[node name="CannonRed5" parent="." instance=ExtResource("4_ofthn")]
-position = Vector2(-25, 539)
-rotation = -4.712389
-scale = Vector2(0.99999994, 0.99999994)
-
-[node name="CannonRed6" parent="." instance=ExtResource("4_ofthn")]
-position = Vector2(755, 244)
-rotation = -5.2359877
-scale = Vector2(0.99999994, 0.99999994)
-
-[node name="CannonRed7" parent="." instance=ExtResource("4_ofthn")]
-position = Vector2(454, 741.00006)
-rotation = -2.6179938
-scale = Vector2(0.99999994, 0.99999994)
-
-[node name="CannonRed8" parent="." instance=ExtResource("4_ofthn")]
-position = Vector2(482, -1043)
-rotation = -3.403392
-scale = Vector2(0.99999994, 0.99999994)
-
 [node name="CannonRed9" parent="." instance=ExtResource("4_ofthn")]
-position = Vector2(-591.00006, -625)
+position = Vector2(-603, -713)
 rotation = -4.1887903
-scale = Vector2(0.99999994, 0.99999994)
-
-[node name="CannonRed10" parent="." instance=ExtResource("4_ofthn")]
-position = Vector2(-892.99994, 500)
-rotation = -4.1887903
-scale = Vector2(0.99999994, 0.99999994)
-
-[node name="CannonRed11" parent="." instance=ExtResource("4_ofthn")]
-position = Vector2(1039, -555)
-rotation = -3.403392
 scale = Vector2(0.99999994, 0.99999994)
 
 [node name="PowderKeg17" parent="." instance=ExtResource("6_tclkt")]
-position = Vector2(1107, -738)
-rotation = 0.76189333
+position = Vector2(1061, -885.99994)
+rotation = 1.3626287

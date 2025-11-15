@@ -407,6 +407,7 @@ height = 380.0
 z_index = 1
 z_as_relative = false
 collision_layer = 4
+motion_mode = 1
 script = ExtResource("1_efxek")
 ship = NodePath("Ship")
 
@@ -419,7 +420,7 @@ max_speed = 400.0
 [node name="BeehaveTree" type="Node" parent="." node_paths=PackedStringArray("blackboard", "actor")]
 unique_name_in_owner = true
 script = ExtResource("2_4niax")
-blackboard = NodePath("@Node@31148")
+blackboard = NodePath("@Node@56409")
 actor = NodePath("..")
 metadata/_custom_type_script = "uid://bb0t2ovl7wifo"
 
@@ -456,7 +457,7 @@ turn_threshold = 300.0
 backward_multiplier = 0.7
 cannons = [NodePath("Cannon"), NodePath("Cannon2"), NodePath("Cannon3"), NodePath("Cannon4"), NodePath("Cannon5"), NodePath("Cannon6")]
 parent_body = NodePath("..")
-max_health = 80
+max_health = 120
 cash_value = 100
 metadata/_custom_type_script = "uid://dho1go2jsex0e"
 

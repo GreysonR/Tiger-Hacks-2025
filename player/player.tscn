@@ -424,6 +424,7 @@ animations = [{
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("ship")]
 collision_layer = 2
+motion_mode = 1
 script = ExtResource("1_qjkh3")
 ship = NodePath("Ship")
 

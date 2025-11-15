@@ -23,6 +23,7 @@ extends Node2D
 func _ready():
 	SceneSwitcher.transition_in(false)
 	update_buttons()
+	PlayerStats.save()
 	
 func update_buttons():
 	# Disabled if poor
